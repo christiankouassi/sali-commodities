@@ -1,4 +1,4 @@
-﻿export interface ProductItem {
+export interface ProductItem {
   id: string;
   name: string;
   category: string;
@@ -26,8 +26,8 @@ export const SITE_CONTENT = {
     baseline: "From good origins to greater opportunities",
     description: "Société d’import-export spécialisée dans l’agro-alimentaire et les matières premières d'exception.",
     holding: "SALI Capital",
-    phone: "+212 6 61 37 39 57",
-    email: "hd@sali-capital.com",
+    phone: "+212 6 61 37 39 37",
+    email: "contact@sali-digicom.com",
     address: "Casablanca, Maroc",
     linkedin: "https://www.linkedin.com"
   },
@@ -46,7 +46,7 @@ export const SITE_CONTENT = {
     titleHighlight: "du monde",
     subtitle: "Nous connectons des producteurs d'exception aux opportunités internationales.",
     ctaPrimary: "Découvrir notre activité",
-    ctaSecondary: "Voir la vidéo",
+    ctaSecondary: "",
     indicators: ["01", "02", "03"],
     corridors: ["Maroc", "Afrique", "Monde"]
   },
@@ -60,7 +60,7 @@ export const SITE_CONTENT = {
     {
       id: "reseau",
       title: "Réseau international",
-      subtitle: "Une présence sur 3 continents",
+      subtitle: "Une présence sur 4 continents",
       icon: "globe"
     },
     {
@@ -79,153 +79,102 @@ export const SITE_CONTENT = {
   productsSection: {
     tag: "NOS PRODUITS",
     title: "Des produits d'exception, aux quatre coins du monde",
-    subtitle: "Du Maroc à l'Afrique de l'Ouest, nous sélectionnons les meilleurs produits agricoles pour répondre aux attentes de nos partenaires internationaux.",
+    subtitle: "Du Maroc à l'Afrique de l'Ouest et à l'international, nous sélectionnons les meilleurs produits agro-alimentaires pour répondre aux exigences des marchés mondiaux.",
     viewAllBtn: "Voir tous les produits",
     categories: [
       { id: "all", label: "Tous les produits" },
       { id: "maroc", label: "Origine Maroc" },
-      { id: "afrique", label: "Afrique de l'Ouest" }
+      { id: "afrique", label: "Afrique de l'Ouest" },
+      { id: "monde", label: "International & IQF" }
     ],
     items: [
       {
         id: "agrumes",
         name: "Agrumes du Maroc",
         category: "Fruits frais - Maroc",
-        desc: "Clémentines de Berkane, oranges Navel et Maroc Late parfumées, célèbres mondialement pour leur goût très sucré.",
+        desc: "Clémentines de Berkane, oranges Navel et Maroc Late parfumées, célèbres mondialement pour leur goût très sucré et leur fraîcheur incomparable.",
         image: "/images/agrumes.png",
-        origin: "maroc",
-        details: {
-          varieties: "Clémentines Berkane / Nadorcott, Oranges Navel, Maroc Late",
-          packaging: "Plateaux carton alvéolés 10kg, 15kg, colis bois personnalisés",
-          certifications: "GlobalG.A.P, BRC, IFS, SMETA",
-          seasonality: "Octobre à Juin selon variétés"
-        }
+        origin: "maroc"
       },
       {
         id: "tomates",
         name: "Tomates rondes & cerises",
         category: "Maraîchage - Maroc",
-        desc: "Tomates cultivées sous serres modernes, sélectionnées et calibrées selon les exigences européennes les plus strictes.",
+        desc: "Tomates cultivées sous serres modernes, rigoureusement sélectionnées et calibrées selon les exigences européennes les plus strictes.",
         image: "/images/tomates.png",
-        origin: "maroc",
-        details: {
-          varieties: "Tomates grappes, cerises allongées, rondes lisses",
-          packaging: "Barquettes 250g/500g, plateaux 5kg/6kg",
-          certifications: "GlobalG.A.P, Grasp, HACCP",
-          seasonality: "Toute l'année (haute saison Novembre à Mai)"
-        }
-      },
-      {
-        id: "fruits-rouges",
-        name: "Fruits rouges",
-        category: "Fruits frais - Maroc",
-        desc: "Sélection premium de framboises, myrtilles et fraises récoltées à la main avec passion dans les meilleures exploitations.",
-        image: "/images/fruits-rouges.png",
-        origin: "maroc",
-        details: {
-          varieties: "Framboises Adelita/Kwanza, Myrtilles Ventura, Fraises Fortuna",
-          packaging: "Raviers 125g, 250g sous atmosphère protectrice",
-          certifications: "GlobalG.A.P, Tesco Nurture, IFS Food",
-          seasonality: "Décembre à Mai"
-        }
+        origin: "maroc"
       },
       {
         id: "huile-olive",
         name: "Huile d'olive extra-vierge",
-        category: "Terroir - Maroc",
-        desc: "Huile vierge extra d'oliviers picholine marocaine au goût intense, extraite à froid et récoltée traditionnellement.",
+        category: "Terroir & Épicerie - Maroc",
+        desc: "Huile vierge extra issue d'oliviers picholine marocaine, extraite à froid avec une acidité minimale pour une qualité gastronomique supérieure.",
         image: "/images/huile-olive.png",
-        origin: "maroc",
-        details: {
-          varieties: "Picholine marocaine 100% pure, première pression à froid",
-          packaging: "Bouteilles verre foncé 250ml/500ml/750ml/1L, bidons métal 5L, vrac IBC 1000L",
-          certifications: "Bio / Organic, Halal, ISO 22000, AOP",
-          seasonality: "Récolte Novembre à Janvier, approvisionnement continu"
-        }
+        origin: "maroc"
       },
       {
-        id: "cajou",
-        name: "Noix de cajou Afrique de l'Ouest",
-        category: "Produits d'Afrique",
-        desc: "Noix de cajou brutes et décortiquées de haute qualité, sélectionnées minutieusement auprès de nos coopératives partenaires.",
-        image: "/images/cajou.png",
-        origin: "afrique",
-        details: {
-          varieties: "Noix brutes RCN (KOR 48-52), Amandes blanches W180, W240, W320",
-          packaging: "Sacs polypropylène 80kg (brutes), cartons sous vide 2x25 lbs (amandes)",
-          certifications: "Fair Trade / Commerce Équitable, ISO 9001, Phyto",
-          seasonality: "Février à Juillet"
-        }
+        id: "myrtilles",
+        name: "Myrtilles fraîches",
+        category: "Fruits rouges - Maroc",
+        desc: "Myrtilles croquantes récoltées à la main avec passion, conditionnées immédiatement pour préserver leur pruine naturelle et leur fermeté.",
+        image: "/images/01_myrtilles.jpg",
+        origin: "maroc"
       },
       {
-        id: "avocat",
-        name: "Avocats du Maroc",
+        id: "framboises",
+        name: "Framboises d'exception",
+        category: "Fruits rouges - Maroc",
+        desc: "Framboises de première qualité aux arômes intenses et à la tenue irréprochable, destinées aux centrales d'achat et à la haute gastronomie.",
+        image: "/images/02_framboises.jpg",
+        origin: "maroc"
+      },
+      {
+        id: "poivrons",
+        name: "Poivrons trio (Rouge, Jaune, Vert)",
         category: "Maraîchage - Maroc",
-        desc: "Avocats Hass crémeux de premier choix récoltés avec professionnalisme et exportés sous contrôle thermique rigoureux.",
-        image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&q=80&w=800",
-        origin: "maroc",
-        details: {
-          varieties: "Hass, Fuerte, Zutano",
-          packaging: "Cartons 4kg (calibres 12 à 24), caisses réutilisables",
-          certifications: "GlobalG.A.P, Sedex",
-          seasonality: "Novembre à Avril"
-        }
+        desc: "Poivrons charnus et colorés, issus d'exploitations certifiées garantissant une traçabilité totale et une régularité de calibre parfaite.",
+        image: "/images/03_poivrons_trio.jpg",
+        origin: "maroc"
       },
       {
-        id: "mangue-fraiche",
-        name: "Mangues fraîches",
-        category: "Produits d'Afrique",
-        desc: "Mangues d'exception récoltées gorgées de soleil pour garantir un arôme et un parfum hors du commun.",
-        image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=800",
-        origin: "afrique",
-        details: {
-          varieties: "Kent, Amélie, Keitt",
-          packaging: "Cartons 4kg fret aérien, plateaux maritimes 5-6kg",
-          certifications: "GlobalG.A.P, Bio",
-          seasonality: "Mars à Juillet"
-        }
+        id: "fruits-legumes-iqf",
+        name: "Fruits & Légumes IQF",
+        category: "Surgélation Individuelle Rapide",
+        desc: "Gamme complète de fruits et légumes surgelés IQF conservant l'intégrité cellulaire, les saveurs originelles et toutes les qualités nutritionnelles.",
+        image: "/images/04_fruits_legumes_IQF.jpg",
+        origin: "monde"
       },
       {
-        id: "mangue-sechee",
-        name: "Mangues séchées",
-        category: "Produits d'Afrique / snacking",
-        desc: "Tranches moelleuses séchées sans sucres ajoutés ni sulfites pour un en-cas énergétique sain et premium.",
-        image: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&q=80&w=800",
-        origin: "afrique",
-        details: {
-          varieties: "Mangue Brooks & Kent sans conservateurs",
-          packaging: "Sachets doypack 100g/250g/1kg, cartons vrac 5kg",
-          certifications: "Bio, HACCP",
-          seasonality: "Disponible toute l'année"
-        }
+        id: "haricots-verts",
+        name: "Haricots verts extra-fins",
+        category: "Maraîchage - Maroc & Afrique",
+        desc: "Haricots verts cueillis à la main à maturité parfaite, triés méticuleusement pour une tendreté et une finesse optimales.",
+        image: "/images/05_haricots_verts.jpg",
+        origin: "maroc"
       },
       {
-        id: "puree-mangue",
-        name: "Purée de mangue",
-        category: "Produits d'Afrique / industrie",
-        desc: "Purée fluide 100% naturelle extraite à maturité optimale pour conserver toute la rondeur aromatique du fruit.",
-        image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&q=80&w=800",
-        origin: "afrique",
-        details: {
-          varieties: "Mangue Kent purifiée, Brix 14-16",
-          packaging: "Fûts aseptiques 200kg, poches bag-in-box 20kg",
-          certifications: "FSSC 22000, Halal, Kasher",
-          seasonality: "Disponible toute l'année"
-        }
+        id: "fruits-secs",
+        name: "Fruits secs & Noix sélectionnées",
+        category: "Épicerie fine & Snacking sain",
+        desc: "Sélection premium d'amandes, noix de cajou et fruits à coque grillés ou bruts, répondant aux standards internationaux d'import-export.",
+        image: "/images/06_fruits_secs.jpg",
+        origin: "afrique"
       },
       {
-        id: "oignon-deshydrate",
-        name: "Poudre d'oignon déshydraté",
-        category: "Produits d'Afrique / ingrédients",
-        desc: "Oignons séchés et finement broyés, extrêmement aromatiques pour l'assaisonnement et l'industrie agroalimentaire.",
-        image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&q=80&w=800",
-        origin: "afrique",
-        details: {
-          varieties: "Oignon blanc et rouge déshydraté en semoule ou poudre",
-          packaging: "Sacs multicouches étanches 25kg",
-          certifications: "ISO 22000, HACCP",
-          seasonality: "Disponible toute l'année"
-        }
+        id: "cacao",
+        name: "Fèves & Dérivés de Cacao",
+        category: "Matières premières - Afrique de l'Ouest",
+        desc: "Fèves de cacao fermentées et séchées de premier choix, approvisionnées auprès de coopératives équitables partenaires en Afrique de l'Ouest.",
+        image: "/images/07_cacao.jpg",
+        origin: "afrique"
+      },
+      {
+        id: "sardines",
+        name: "Sardines en conserve premium",
+        category: "Produits de la mer - Maroc",
+        desc: "Sardines fraîches de l'Atlantique marocain préparées artisanalement à l'huile d'olive et aux aromates, réputées pour leur finesse gustative.",
+        image: "/images/08_sardines_en_conserve.jpg",
+        origin: "maroc"
       }
     ] as ProductItem[]
   },
@@ -246,7 +195,7 @@ export const SITE_CONTENT = {
       },
       {
         icon: "shieldCheck",
-        title: "Traçabilité à chaque étape",
+        title: "Traçabilité intégrale",
         desc: "Identification précise de la parcelle, du producteur et des conditions d'acheminement jusqu'au client final."
       },
       {
@@ -264,29 +213,51 @@ export const SITE_CONTENT = {
   network: {
     tag: "NOTRE RÉSEAU",
     title: "Des origines multiples, un même engagement",
-    desc: "Grâce à notre réseau de producteurs et de partenaires, nous développons des solutions sur mesure pour approvisionner les marchés en Europe, en Afrique et en Asie.",
+    desc: "Grâce à notre réseau intégré de producteurs et de plateformes logistiques, nous connectons les filières d'excellence aux marchés mondiaux en Europe, aux États-Unis, en Égypte, en Afrique du Sud et au Moyen-Orient.",
     cta: "Découvrir notre réseau",
-    mapImage: "/images/carte-reseau.png",
+    mapImage: "/images/carte-monde-base.png",
     hubs: [
       {
         name: "Maroc (Hub Central)",
-        role: "Production agricole d'exception & plateforme logistique pivot",
-        flows: "Export vers l'Europe, l'Afrique et le Moyen-Orient"
+        role: "Plateforme pivot & sourcing agricole d'exception (Casablanca / Agadir)",
+        flows: "Hub export vers l'Europe, les Amériques, l'Afrique et le Moyen-Orient",
+        coordinates: { x: 462, y: 195 }
       },
       {
-        name: "Afrique de l'Ouest",
-        role: "Bassin de production tropicale de haute qualité (cajou, mangues, épices)",
-        flows: "Filières directes producteur-importateur"
+        name: "États-Unis",
+        role: "Grand marché nord-américain, centrales d'achat & distributeurs spécialisés",
+        flows: "Agrumes, Huile d'olive extra-vierge, Fruits IQF",
+        coordinates: { x: 255, y: 170 }
       },
       {
         name: "Europe",
-        role: "Marchés de consommation exigeants, centrales d'achat & grossistes",
-        flows: "Liaisons régulières directes maritimes et routières"
+        role: "Marchés de consommation exigeants (France, Espagne, Royaume-Uni, Allemagne)",
+        flows: "Liaisons maritimes et routières directes en flux tendu",
+        coordinates: { x: 495, y: 140 }
       },
       {
-        name: "Asie & Moyen-Orient",
-        role: "Partenaires de négoce et marchés émergents en forte croissance",
-        flows: "Contrats de fourniture sécurisés"
+        name: "Égypte",
+        role: "Bassin de production méditerranéen & carrefour commercial stratégique",
+        flows: "Agrumes, légumes primeurs et partenariats logistiques",
+        coordinates: { x: 585, y: 198 }
+      },
+      {
+        name: "Afrique du Sud",
+        role: "Partenariats Sud-Sud & complémentarité de contre-saison",
+        flows: "Échanges bilatéraux de fruits et produits agroalimentaires",
+        coordinates: { x: 545, y: 395 }
+      },
+      {
+        name: "Afrique de l'Ouest",
+        role: "Bassin de production tropicale de haute qualité (Sénégal, Côte d'Ivoire)",
+        flows: "Cacao, fruits tropicaux, anacarde et denrées vivrières",
+        coordinates: { x: 435, y: 260 }
+      },
+      {
+        name: "Moyen-Orient",
+        role: "Marchés d'excellence à forte valeur ajoutée (Émirats Arabes Unis, Arabie Saoudite)",
+        flows: "Fret aérien et maritime régulier pour produits gastronomiques",
+        coordinates: { x: 645, y: 215 }
       }
     ]
   },
@@ -401,8 +372,6 @@ export const SITE_CONTENT = {
     }
   ],
   stats: [
-    { value: "+ 100", label: "Producteurs partenaires" },
-    { value: "+ 15", label: "Pays desservis" },
     { value: "+ 50", label: "Produits référencés" },
     { value: "100 %", label: "Traçabilité" },
     { value: "0", label: "Compromis sur la qualité" }

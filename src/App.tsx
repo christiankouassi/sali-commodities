@@ -1,4 +1,5 @@
-﻿import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FeatureCards from './components/FeatureCards';
@@ -13,7 +14,7 @@ import VideoModal from './components/VideoModal';
 import ProductModal from './components/ProductModal';
 import ContactModal from './components/ContactModal';
 import NetworkModal from './components/NetworkModal';
-import { ProductItem, SITE_CONTENT } from './data/content';
+import { ProductItem } from './data/content';
 
 export default function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -21,7 +22,7 @@ export default function App() {
   const [isNetworkModalOpen, setIsNetworkModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
   const [prefillProduct, setPrefillProduct] = useState<string>('');
-  const [activeLang, setActiveLang] = useState<'FR' | 'EN' | 'AR'>('FR');
+  const [activeLang, setActiveLang] = useState<'FR' | 'EN' | 'ES'>('FR');
 
   const handleOpenContact = (productName?: string) => {
     if (productName) {
@@ -39,8 +40,47 @@ export default function App() {
     }
   };
 
+  // Reversible IntersectionObserver for .ae scroll entrance animations (Style Selma / Fonciere Dassouli)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('vis');
+          } else {
+            entry.target.classList.remove('vis');
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    const animatedElements = document.querySelectorAll('.ae');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    const timer = setTimeout(() => {
+      animatedElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('vis');
+        }
+      });
+    }, 100);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-[#fcfcfd] text-[#1c2c46]">
+      {/* 3-Second Official Splash Screen */}
+      <SplashScreen />
+
       {/* Sticky Navigation Bar */}
       <Navbar
         onOpenContact={() => handleOpenContact()}
@@ -48,52 +88,53 @@ export default function App() {
         onChangeLang={(l) => setActiveLang(l)}
       />
 
-      {/* Main Single-Page Content Following Mockup Structure */}
+      {/* Main Content Following Mockup Structure */}
       <main className="flex-grow">
-        {/* 1. Hero Section with 01_hero_producteur_verger_SALI.png */}
+        {/* 1. Hero Section with 4-Line Slogan */}
         <Hero
           onOpenVideo={() => setIsVideoModalOpen(true)}
           onDiscover={handleDiscover}
         />
 
-        {/* 2. The 4 Floating Boxes (Sourcing responsable, Réseau international, etc.) */}
+        {/* 2. Feature Cards with Auto-Scroll & Swipe on Mobile */}
         <FeatureCards />
 
-        {/* 3. Section "NOS PRODUITS" with HD Products Carousel */}
+        {/* 3. Section "NOS PRODUITS" with Continuous Auto-Scroll */}
         <ProductCatalog
-          onSelectProduct={(product) => setSelectedProduct(product)}
+          onSelectProduct={(product) => handleOpenContact(product.name)}
           onViewAll={() => {
             const el = document.getElementById('produits');
             el?.scrollIntoView({ behavior: 'smooth' });
           }}
         />
 
-        {/* 4. Section "NOTRE ENGAGEMENT" with 07_agriculture_durable_maroc.png */}
+        {/* 4. Section "NOTRE ENGAGEMENT" */}
         <CommitmentSection
           onLearnMore={() => handleOpenContact()}
         />
 
-        {/* 5. Section "NOTRE RÉSEAU" with carte-reseau.png */}
+        {/* 5. Section "NOS MARCHÉS" (Faithful title & exact map coordinates) */}
         <NetworkSection
-          onOpenNetworkModal={() => setIsNetworkModalOpen(true)}
+          onOpenNetworkModal={() => handleOpenContact()}
+          onOpenContactModal={() => handleOpenContact()}
         />
 
-        {/* 6. Section "NOTRE EXPERTISE" (9 Services from SALI Capital Official Site) */}
-        <ExpertiseSection />
+        {/* 6. Section "NOS SERVICES" (Mobile Tabs & Desktop Sticky Scroll-Spy) */}
+        <ExpertiseSection onSelectService={(serviceName) => handleOpenContact(serviceName)} />
 
-        {/* 7. Key Figures Banner with 08_fond_chiffres_verger.png */}
+        {/* 7. Key Figures Banner (3 Stats) */}
         <StatsSection />
 
-        {/* 8. Contact CTA Banner with 09_fond_contact_tomates.png */}
+        {/* 8. Contact CTA Banner */}
         <ContactCta
-          onOpenContact={() => handleOpenContact()}
+          onOpenModal={() => handleOpenContact()}
         />
       </main>
 
-      {/* 9. Official Institutional Footer with SALI COMMODITIES® */}
+      {/* Official Institutional Footer */}
       <Footer />
 
-      {/* Modals & Dialogs */}
+      {/* Modals */}
       <VideoModal
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}

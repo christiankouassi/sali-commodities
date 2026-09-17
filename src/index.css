@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 :root {
   --primary-green: #1d9878;
@@ -15,6 +15,7 @@ body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: #1c2c46;
   background-color: #fcfcfd;
+  overflow-x: hidden;
 }
 
 /* Custom scrollbar */
@@ -38,4 +39,83 @@ body {
 
 .font-script {
   font-family: 'Brush Script MT', 'Segoe Script', cursive;
+}
+
+/* =========================================================
+   REVERSIBLE SECTION ENTRANCE ANIMATIONS (STYLE SELMA / FONCIERE DASSOULI)
+   ========================================================= */
+.ae {
+  opacity: 0;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.ae-up    { transform: translateY(36px); }
+.ae-down  { transform: translateY(-36px); }
+.ae-left  { transform: translateX(-36px); }
+.ae-right { transform: translateX(36px); }
+.ae-pop   { transform: scale(0.96); }
+
+.ae.vis {
+  opacity: 1;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* Staggered Delay Levels */
+.ae[data-d="1"]   { transition-delay: 0.05s; }
+.ae[data-d="1.5"] { transition-delay: 0.10s; }
+.ae[data-d="2"]   { transition-delay: 0.15s; }
+.ae[data-d="2.5"] { transition-delay: 0.20s; }
+.ae[data-d="3"]   { transition-delay: 0.25s; }
+.ae[data-d="3.5"] { transition-delay: 0.30s; }
+.ae[data-d="4"]   { transition-delay: 0.35s; }
+.ae[data-d="4.5"] { transition-delay: 0.40s; }
+.ae[data-d="5"]   { transition-delay: 0.45s; }
+
+
+/* =========================================================
+   MAP STYLES FROM "Carte mondiale réseau Maroc"
+   ========================================================= */
+@keyframes mapFlow {
+  to { stroke-dashoffset: -16; }
+}
+
+@keyframes mapPulseRing {
+  0% { opacity: 0.55; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2.8); }
+}
+
+.map-land {
+  fill: #E8ECF2;
+  transition: fill 0.3s ease;
+}
+
+.map-route {
+  fill: none;
+  stroke: #1D9878;
+  stroke-width: 2.8;
+  stroke-dasharray: 2.5 6.5;
+  stroke-linecap: round;
+  stroke-dashoffset: 0;
+  animation: mapFlow 1.4s linear infinite;
+}
+
+.map-pulse {
+  fill: none;
+  stroke: #1D9878;
+  stroke-width: 2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mapPulseRing 2.2s ease-out infinite;
+}
+
+.map-hub-ring {
+  fill: none;
+  stroke: #1C2C46;
+  stroke-width: 2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mapPulseRing 2.2s ease-out infinite;
 }

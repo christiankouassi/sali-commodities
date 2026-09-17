@@ -1,12 +1,12 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Globe, Menu, X, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
 import { SITE_CONTENT } from '../data/content';
 
 interface NavbarProps {
   onOpenContact: () => void;
-  activeLang: 'FR' | 'EN' | 'AR';
-  onChangeLang: (lang: 'FR' | 'EN' | 'AR') => void;
+  activeLang: 'FR' | 'EN' | 'ES';
+  onChangeLang: (lang: 'FR' | 'EN' | 'ES') => void;
 }
 
 export default function Navbar({ onOpenContact, activeLang, onChangeLang }: NavbarProps) {
@@ -31,9 +31,9 @@ export default function Navbar({ onOpenContact, activeLang, onChangeLang }: Navb
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo - Compact as requested */}
         <a href="#accueil" className="flex items-center group">
-          <Logo size="md" light={false} />
+          <Logo size="sm" light={false} />
         </a>
 
         {/* Desktop Navigation Links */}
@@ -73,7 +73,7 @@ export default function Navbar({ onOpenContact, activeLang, onChangeLang }: Navb
 
             {isLangOpen && (
               <div className="absolute right-0 mt-1.5 w-24 bg-white rounded-lg shadow-lg border border-slate-100 py-1 z-50">
-                {(['FR', 'EN', 'AR'] as const).map((l) => (
+                {(['FR', 'EN', 'ES'] as const).map((l) => (
                   <button
                     key={l}
                     onClick={() => {
@@ -84,7 +84,7 @@ export default function Navbar({ onOpenContact, activeLang, onChangeLang }: Navb
                       activeLang === l ? 'text-[#1d9878] font-bold bg-slate-50' : 'text-slate-600'
                     }`}
                   >
-                    {l === 'FR' ? 'Français' : l === 'EN' ? 'English' : 'العربية'}
+                    {l === 'FR' ? 'Français' : l === 'EN' ? 'English' : 'Español'}
                   </button>
                 ))}
               </div>

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Send, Phone, Mail, MapPin, CheckCircle2 } from 'lucide-react';
 import { SITE_CONTENT } from '../data/content';
 
@@ -19,6 +19,15 @@ export default function ContactModal({ isOpen, onClose, prefillProduct }: Contac
     role: 'Distributeur',
     message: prefillProduct ? `Bonjour, je souhaite obtenir des informations et une cotation pour : ${prefillProduct}.` : ''
   });
+
+  useEffect(() => {
+    if (prefillProduct) {
+      setFormData(prev => ({
+        ...prev,
+        message: `Bonjour, je souhaite obtenir des informations et une cotation pour : ${prefillProduct}.`
+      }));
+    }
+  }, [prefillProduct, isOpen]);
 
   if (!isOpen) return null;
 

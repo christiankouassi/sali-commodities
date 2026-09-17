@@ -1,29 +1,30 @@
-﻿import React from 'react';
+import React from 'react';
 import { SITE_CONTENT } from '../data/content';
 
 export default function StatsSection() {
   const { stats } = SITE_CONTENT;
 
   return (
-    <section className="relative py-20 lg:py-24 overflow-hidden">
-      {/* Background with 08_fond_chiffres_verger.png */}
+    <section id="chiffres" className="relative py-20 lg:py-28 overflow-hidden ae ae-up" data-d="1">
+      {/* Background with luminous 08_fond_chiffres_verger.png without heavy black mask */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/fond-chiffres.png"
-          alt="Vergers agricoles SALI"
-          className="w-full h-full object-cover object-center filter brightness-[0.65]"
+          alt="Vergers agricoles SALI Commodities"
+          className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
         />
-        <div className="absolute inset-0 bg-[#071320]/80 backdrop-blur-[2px]" />
+        {/* Subtle luminous gradient preserving orchard vibrancy while keeping text crystal clear */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071320]/80 via-[#071320]/45 to-[#071320]/30" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 text-center divide-y sm:divide-y-0 divide-white/10">
-          {stats.map((stat, index) => (
-            <div key={index} className={`flex flex-col items-center justify-center p-4 ${index > 0 ? 'pt-6 sm:pt-4' : ''}`}>
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-2">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+          {stats.slice(0, 3).map((stat, index) => (
+            <div key={index} className={`flex flex-col items-center justify-center p-4 ${index > 0 ? 'pt-8 sm:pt-4 sm:pl-8' : ''}`}>
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-2.5 drop-shadow-md">
                 {stat.value}
               </div>
-              <div className="text-xs sm:text-sm font-medium text-slate-300 leading-snug max-w-[140px]">
+              <div className="text-sm sm:text-base font-bold text-emerald-300/90 tracking-wide uppercase max-w-[200px] drop-shadow-sm">
                 {stat.label}
               </div>
             </div>

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 interface LogoProps {
   className?: string;
@@ -9,19 +9,19 @@ interface LogoProps {
 
 export default function Logo({ className = '', light = false, withText = true, size = 'md' }: LogoProps) {
   const iconSizes = {
-    sm: 'w-7 h-7',
-    md: 'w-9 h-9',
-    lg: 'w-12 h-12'
+    sm: 'w-6 h-6',
+    md: 'w-8 h-8',
+    lg: 'w-10 h-10'
   };
 
   const textSizes = {
-    sm: 'text-base',
-    md: 'text-lg',
-    lg: 'text-2xl'
+    sm: 'text-[13px] sm:text-sm',
+    md: 'text-sm sm:text-base',
+    lg: 'text-lg sm:text-xl'
   };
 
   return (
-    <div className={`flex items-center gap-2.5 select-none ${className}`}>
+    <div className={`flex items-center gap-2 select-none ${className}`}>
       {/* Official Sali Spiral Mark */}
       <div className={`relative flex-shrink-0 ${iconSizes[size]} transition-transform duration-300 hover:scale-105`}>
         <img 
@@ -33,14 +33,9 @@ export default function Logo({ className = '', light = false, withText = true, s
 
       {withText && (
         <div className="flex flex-col leading-tight">
-          <div className="flex items-start">
-            <span className={`font-bold tracking-wider uppercase font-['Montserrat'] ${textSizes[size]} ${light ? 'text-white' : 'text-[#1c2c46]'}`}>
-              SALI <span className="font-semibold tracking-wide">COMMODITIES</span>
-            </span>
-            <span className={`text-[10px] font-bold ml-0.5 mt-0.5 leading-none ${light ? 'text-[#3ecfa6]' : 'text-[#1d9878]'}`}>
-              ®
-            </span>
-          </div>
+          <span className={`font-bold tracking-wider uppercase font-['Montserrat'] ${textSizes[size]} ${light ? 'text-white' : 'text-[#1c2c46]'}`}>
+            SALI <span className="font-semibold tracking-wide">COMMODITIES</span>
+          </span>
         </div>
       )}
     </div>

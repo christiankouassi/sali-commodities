@@ -1,49 +1,46 @@
-﻿import React from 'react';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { SITE_CONTENT } from '../data/content';
 
 interface ContactCtaProps {
-  onOpenContact: () => void;
+  onOpenModal: () => void;
 }
 
-export default function ContactCta({ onOpenContact }: ContactCtaProps) {
+export default function ContactCta({ onOpenModal }: ContactCtaProps) {
   const { contactCta } = SITE_CONTENT;
 
   return (
-    <section className="relative py-16 sm:py-20 overflow-hidden">
-      {/* Background Image with 09_fond_contact_tomates.png */}
+    <section id="contact-cta" className="relative py-20 lg:py-28 overflow-hidden ae ae-up" data-d="1">
+      {/* Background with 09_fond_contact_tomates.png: fresh, faithful to maquette */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/fond-contact.png"
-          alt="Production maraîchère SALI"
-          className="w-full h-full object-cover object-center filter brightness-[0.45] contrast-125"
+          alt="Cultures de tomates fraîches SALI"
+          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#450a0a]/85 via-[#1a0505]/75 to-[#0b101b]/85" />
+        {/* Clean elegant gradient without heavy dark red tint */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071320]/85 via-[#071320]/55 to-black/30" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div className="max-w-2xl">
-            <span className="text-xs font-bold tracking-widest text-[#fca5a5] uppercase mb-2 inline-block">
-              {contactCta.tag}
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-3">
-              {contactCta.title}
-            </h2>
-            <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-xl">
-              {contactCta.subtitle}
-            </p>
-          </div>
+        <div className="max-w-2xl">
+          <span className="text-xs font-extrabold tracking-widest text-[#3ecfa6] uppercase mb-3 inline-block">
+            {contactCta.tag}
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 drop-shadow-md">
+            {contactCta.title}
+          </h2>
+          <p className="text-base sm:text-lg text-slate-200 leading-relaxed mb-8 font-medium max-w-xl drop-shadow-sm">
+            {contactCta.subtitle}
+          </p>
 
-          <div className="flex-shrink-0">
-            <button
-              onClick={onOpenContact}
-              className="inline-flex items-center gap-3 bg-white hover:bg-slate-100 text-[#1c2c46] text-sm font-bold px-7 py-3.5 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:translate-x-0.5 group"
-            >
-              <span>{contactCta.buttonText}</span>
-              <ArrowRight className="w-4 h-4 text-[#1d9878] transition-transform group-hover:translate-x-1" />
-            </button>
-          </div>
+          <button
+            onClick={onOpenModal}
+            className="inline-flex items-center gap-3 bg-white text-[#1c2c46] hover:bg-[#3ecfa6] hover:text-[#0b1727] text-sm sm:text-base font-bold px-7 py-4 rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl group"
+          >
+            <span>{contactCta.buttonText}</span>
+            <ArrowRight className="w-5 h-5 text-[#1d9878] group-hover:text-[#0b1727] transition-transform group-hover:translate-x-1" />
+          </button>
         </div>
       </div>
     </section>

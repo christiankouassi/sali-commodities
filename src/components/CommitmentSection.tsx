@@ -1,5 +1,5 @@
-﻿import React from 'react';
-import { ArrowRight, Sprout, ShieldCheck, Users, Globe } from 'lucide-react';
+import React from 'react';
+import { Sprout, ShieldCheck, Users, Globe } from 'lucide-react';
 import { SITE_CONTENT } from '../data/content';
 
 interface CommitmentSectionProps {
@@ -25,11 +25,11 @@ export default function CommitmentSection({ onLearnMore }: CommitmentSectionProp
   };
 
   return (
-    <section id="engagement" className="py-20 lg:py-28 bg-[#f8fafc] border-y border-slate-100">
+    <section id="engagement" className="py-20 lg:py-28 bg-[#f8fafc] border-y border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Visual Highlight Card with 07_agriculture_durable_maroc.png */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 ae ae-left" data-d="1">
             <div className="relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden shadow-xl group">
               <img
                 src={commitment.featureCard.image}
@@ -46,14 +46,10 @@ export default function CommitmentSection({ onLearnMore }: CommitmentSectionProp
                   {commitment.featureCard.title}
                 </h3>
 
-                <div className="flex items-center justify-between pt-4 border-t border-white/20">
+                <div className="flex items-center pt-4 border-t border-white/20">
                   <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200 font-medium">
                     <Sprout className="w-4 h-4 text-[#3ecfa6] flex-shrink-0" />
                     <span>{commitment.featureCard.subtitle}</span>
-                  </div>
-
-                  <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#1d9878] group-hover:border-[#1d9878] flex-shrink-0">
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                   </div>
                 </div>
               </div>
@@ -61,7 +57,7 @@ export default function CommitmentSection({ onLearnMore }: CommitmentSectionProp
           </div>
 
           {/* Right Column: Commitment Text & 4 Key Pillars */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 ae ae-right" data-d="1.5">
             <span className="text-xs font-bold tracking-widest text-[#1d9878] uppercase mb-2 inline-block">
               {commitment.tag}
             </span>
