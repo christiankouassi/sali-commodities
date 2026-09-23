@@ -1,13 +1,14 @@
 import React from 'react';
 import { Sprout, ShieldCheck, Users, Globe } from 'lucide-react';
-import { SITE_CONTENT } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 interface CommitmentSectionProps {
   onLearnMore?: () => void;
 }
 
 export default function CommitmentSection({ onLearnMore }: CommitmentSectionProps) {
-  const { commitment } = SITE_CONTENT;
+  const { t } = useLanguage();
+  const { commitment } = t;
 
   const getPillarIcon = (iconName: string) => {
     switch (iconName) {
@@ -28,12 +29,12 @@ export default function CommitmentSection({ onLearnMore }: CommitmentSectionProp
     <section id="engagement" className="py-20 lg:py-28 bg-[#f8fafc] border-y border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left Column: Visual Highlight Card with 07_agriculture_durable_maroc.png */}
+          {/* Left Column: Visual Highlight Card with sustainable agriculture image */}
           <div className="lg:col-span-6 ae ae-left" data-d="1">
             <div className="relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden shadow-xl group">
               <img
                 src={commitment.featureCard.image}
-                alt="Agriculture durable au Maroc"
+                alt={commitment.featureCard.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.92]"
               />
 

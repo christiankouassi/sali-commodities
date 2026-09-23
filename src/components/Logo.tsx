@@ -5,9 +5,10 @@ interface LogoProps {
   light?: boolean;
   withText?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  whiteIcon?: boolean;
 }
 
-export default function Logo({ className = '', light = false, withText = true, size = 'md' }: LogoProps) {
+export default function Logo({ className = '', light = false, withText = true, size = 'md', whiteIcon = false }: LogoProps) {
   const iconSizes = {
     sm: 'w-6 h-6',
     md: 'w-8 h-8',
@@ -20,6 +21,8 @@ export default function Logo({ className = '', light = false, withText = true, s
     lg: 'text-lg sm:text-xl'
   };
 
+  const isWhiteIcon = whiteIcon || light;
+
   return (
     <div className={`flex items-center gap-2 select-none ${className}`}>
       {/* Official Sali Spiral Mark */}
@@ -27,7 +30,7 @@ export default function Logo({ className = '', light = false, withText = true, s
         <img 
           src="/sali-icon.png" 
           alt="SALI Symbol" 
-          className="w-full h-full object-contain"
+          className={`w-full h-full object-contain ${isWhiteIcon ? 'brightness-0 invert' : ''}`}
         />
       </div>
 

@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Sprout, Globe2, Award, Truck } from 'lucide-react';
-import { SITE_CONTENT } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function FeatureCards() {
+  const { t } = useLanguage();
   const [isPaused, setIsPaused] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -45,7 +46,7 @@ export default function FeatureCards() {
   }, [isPaused]);
 
   // Duplicate items for continuous feel on mobile
-  const displayItems = [...SITE_CONTENT.featureBoxes, ...SITE_CONTENT.featureBoxes];
+  const displayItems = [...t.featureBoxes, ...t.featureBoxes];
 
   return (
     <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-12 ae ae-up" data-d="1">
@@ -83,7 +84,7 @@ export default function FeatureCards() {
 
         {/* Desktop: Stationary 4-Column Grid */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:divide-x divide-slate-100">
-          {SITE_CONTENT.featureBoxes.map((box, index) => (
+          {t.featureBoxes.map((box, index) => (
             <div
               key={box.id}
               className={`flex items-start gap-4 p-4 transition-all duration-300 hover:bg-slate-50/70 rounded-xl group ${

@@ -1,24 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { WORLD_MAP_WIDTH, WORLD_MAP_HEIGHT, COUNTRY_PATHS, HUB_NODE, NETWORK_NODES } from '../data/worldMapData';
+import { useLanguage } from '../context/LanguageContext';
 
 interface NetworkSectionProps {
   onOpenNetworkModal?: () => void;
   onOpenContactModal?: () => void;
 }
 
-// Ordered destinations: Dubai (Moyen-Orient & Asie) appears first right after Morocco Hub,
-// followed by Europe, Afrique de l'Ouest, Égypte, Afrique du Sud, and États-Unis.
-const ORDERED_DESTINATIONS = [
-  NETWORK_NODES.find(n => n.name.includes("Moyen-Orient"))!,
-  NETWORK_NODES.find(n => n.name === "Europe")!,
-  NETWORK_NODES.find(n => n.name.includes("Afrique de l'Ouest"))!,
-  NETWORK_NODES.find(n => n.name === "Égypte")!,
-  NETWORK_NODES.find(n => n.name === "Afrique du Sud")!,
-  NETWORK_NODES.find(n => n.name.includes("États-Unis"))!,
-].filter(Boolean);
-
 export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal }: NetworkSectionProps) {
+  const { t } = useLanguage();
   const handleContactClick = onOpenContactModal || onOpenNetworkModal;
   const sectionRef = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
@@ -56,15 +47,15 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
           {/* Left Column: Title, Subtitle, CTA */}
           <div className="lg:col-span-4 flex flex-col justify-center ae ae-left" data-d="1">
             <span className="text-xs font-bold tracking-widest text-[#1d9878] uppercase mb-2 inline-block">
-              NOS MARCHÉS INTERNATIONAUX
+              {t.network.tag}
             </span>
             
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-[#1c2c46] mb-4">
-              Nos marchés
+              {t.network.title}
             </h2>
             
             <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8">
-              En constante évolution, notre réseau actuel comprend des importateurs et exportateurs situés en Europe, en Afrique ainsi qu'en Asie.
+              {t.network.desc}
             </p>
 
             {handleContactClick && (
@@ -72,7 +63,7 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                 onClick={handleContactClick}
                 className="inline-flex items-center justify-center gap-2 bg-[#1c2c46] hover:bg-[#121f33] text-white text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg group self-start"
               >
-                <span>Rejoindre notre réseau</span>
+                <span>{t.network.cta}</span>
                 <ArrowRight className="w-4 h-4 text-[#3ecfa6] transition-transform group-hover:translate-x-1" />
               </button>
             )}
@@ -92,47 +83,62 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                 >
                   <defs>
                     {/* Dynamic Masks for each route line to animate outward drawing from Morocco to destination */}
-                    {ORDERED_DESTINATIONS.map((node, i) => (
-                      <mask key={`mask-${node.name}`} id={`route-mask-${i}`}>
+                    {NETWORK_NODES.map((node, i) => (
+                      <mask key={`mask-${node.id}`} id={`route-mask-${i}`}>
                         <path
                           d={node.routeD}
                           fill="none"
                           stroke="white"
                           strokeWidth="20"
-                          strokeLinecap="round"
-                          pathLength="100"
+                          pathLength="1000"
+                          className={isInView ? "map-route-draw" : ""}
                           style={{
-                            strokeDasharray: "100 100",
-                            strokeDashoffset: isInView ? "0" : "100",
-                            transition: isInView
-                              ? `stroke-dashoffset 0.65s cubic-bezier(0.25, 1, 0.5, 1) ${0.75 + i * 0.75}s`
-                              : "none"
+                            animationDelay: `${0.2 + i * 0.25}s`,
+                            animationDuration: "1.2s",
+                            animationFillMode: "forwards"
                           }}
                         />
                       </mask>
                     ))}
                   </defs>
 
-                  {/* Landmass Paths from NaturalEarth1 Projection */}
-                  <g className="land-group">
-                    {COUNTRY_PATHS.map((d, index) => (
-                      <path key={index} className="map-land" d={d} />
+                  {/* World Vector Contours: 100% exact geographic geometry */}
+                  <g className="map-countries" fill="#DDE4EE" stroke="#ffffff" strokeWidth="0.8">
+                    {COUNTRY_PATHS.map((pathStr, index) => (
+                      <path key={index} d={pathStr} />
                     ))}
                   </g>
 
-                  {/* Route curves flowing outwards from Morocco Hub, masked for entrance animation */}
+                  {/* Dynamic Export Flow Lines */}
                   <g className="routes-group">
-                    {ORDERED_DESTINATIONS.map((node, i) => (
-                      <path
-                        key={node.name}
-                        className="map-route"
-                        d={node.routeD}
-                        mask={`url(#route-mask-${i})`}
-                      />
+                    {NETWORK_NODES.map((node, i) => (
+                      <g key={`route-${node.id}`} mask={`url(#route-mask-${i})`}>
+                        {/* Static Route Line */}
+                        <path
+                          d={node.routeD}
+                          fill="none"
+                          stroke="#1D9878"
+                          strokeWidth="1.8"
+                          strokeDasharray="4 4"
+                          strokeLinecap="round"
+                          opacity="0.75"
+                        />
+                        {/* Highlighting Glowing Flow Line */}
+                        <path
+                          d={node.routeD}
+                          fill="none"
+                          stroke="#3ECFA6"
+                          strokeWidth="2.2"
+                          strokeDasharray="6 12"
+                          strokeLinecap="round"
+                          className="map-route-flow"
+                          style={{ animationDelay: node.delay }}
+                        />
+                      </g>
                     ))}
                   </g>
 
-                  {/* Morocco Central Hub Markers (Appears first at 0.1s) */}
+                  {/* Central Hub (Morocco / SALI Commodities) Pulsing Target Anchor */}
                   <g
                     className="hub-group"
                     style={{
@@ -140,25 +146,26 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                       transform: isInView ? "scale(1)" : "scale(0.2)",
                       transformOrigin: `${HUB_NODE.x}px ${HUB_NODE.y}px`,
                       transition: isInView
-                        ? "opacity 0.4s ease-out 0.1s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s"
+                        ? "opacity 0.5s ease-out 0.1s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s"
                         : "none"
                     }}
                   >
                     <circle className="map-hub-ring" cx={HUB_NODE.x} cy={HUB_NODE.y} r="7" />
                     <circle cx={HUB_NODE.x} cy={HUB_NODE.y} r="7" fill="#1C2C46" />
+                    <circle cx={HUB_NODE.x} cy={HUB_NODE.y} r="3" fill="#3ECFA6" />
                   </g>
 
                   {/* Destination Dots with Pulsing Green Rings (Sequenced one by one) */}
                   <g className="dots-group">
-                    {ORDERED_DESTINATIONS.map((node, i) => (
+                    {NETWORK_NODES.map((node, i) => (
                       <g
-                        key={node.name}
+                        key={node.id}
                         style={{
                           opacity: isInView ? 1 : 0,
                           transform: isInView ? "scale(1)" : "scale(0.2)",
                           transformOrigin: `${node.x}px ${node.y}px`,
                           transition: isInView
-                            ? `opacity 0.4s ease-out ${0.5 + i * 0.75}s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${0.5 + i * 0.75}s`
+                            ? `opacity 0.4s ease-out ${0.3 + i * 0.25}s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${0.3 + i * 0.25}s`
                             : "none"
                         }}
                       >
@@ -188,12 +195,12 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                   </g>
                 </svg>
 
-                {/* HTML Labels Overlay: matching exact proportions of user reference image */}
+                {/* HTML Labels Overlay */}
                 <div className="absolute inset-0 pointer-events-none">
                   {/* Destination Node Labels: Delicate, compact rounded pill capsules */}
-                  {ORDERED_DESTINATIONS.map((node, i) => (
+                  {NETWORK_NODES.map((node, i) => (
                     <div
-                      key={node.name}
+                      key={node.id}
                       className="absolute bg-white/95 backdrop-blur-[2px] text-[#253D62] font-semibold text-[clamp(6.5px,0.92cqw,9px)] px-[0.6cqw] py-[0.18cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.12)] whitespace-nowrap border border-slate-200/80 leading-normal"
                       style={{
                         left: node.left,
@@ -201,15 +208,15 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                         transform: node.transform,
                         opacity: isInView ? 1 : 0,
                         transition: isInView
-                          ? `opacity 0.4s ease-out ${0.5 + i * 0.75}s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${0.5 + i * 0.75}s`
+                          ? `opacity 0.4s ease-out ${0.3 + i * 0.25}s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${0.3 + i * 0.25}s`
                           : "none"
                       }}
                     >
-                      {node.name}
+                      {t.network.destinations[node.id] || node.name}
                     </div>
                   ))}
 
-                  {/* Morocco Central Hub Label: EXACT SAME font-size and padding as destination labels */}
+                  {/* Morocco Central Hub Label: SALI Commodities */}
                   <div
                     className="absolute bg-[#1C2C46] text-white font-bold text-[clamp(6.5px,0.92cqw,9px)] px-[0.6cqw] py-[0.18cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.15)] whitespace-nowrap leading-normal -translate-x-1/2 -translate-y-1/2"
                     style={{

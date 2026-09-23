@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -16,13 +17,12 @@ import ContactModal from './components/ContactModal';
 import NetworkModal from './components/NetworkModal';
 import { ProductItem } from './data/content';
 
-export default function App() {
+function MainApp() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isNetworkModalOpen, setIsNetworkModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
   const [prefillProduct, setPrefillProduct] = useState<string>('');
-  const [activeLang, setActiveLang] = useState<'FR' | 'EN' | 'ES'>('FR');
 
   const handleOpenContact = (productName?: string) => {
     if (productName) {
@@ -40,7 +40,7 @@ export default function App() {
     }
   };
 
-  // Reversible IntersectionObserver for .ae scroll entrance animations (Style Selma / Fonciere Dassouli)
+  // Reversible IntersectionObserver for .ae scroll entrance animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -81,45 +81,41 @@ export default function App() {
       {/* 3-Second Official Splash Screen */}
       <SplashScreen />
 
-      {/* Sticky Navigation Bar */}
-      <Navbar
-        onOpenContact={() => handleOpenContact()}
-        activeLang={activeLang}
-        onChangeLang={(l) => setActiveLang(l)}
-      />
+      {/* Sticky Navigation Bar with Language Switcher */}
+      <Navbar onOpenContact={() => handleOpenContact()} />
 
-      {/* Main Content Following Mockup Structure */}
+      {/* Main Content */}
       <main className="flex-grow">
-        {/* 1. Hero Section with 4-Line Slogan */}
+        {/* 1. Hero Section with responsive downward offset */}
         <Hero
           onOpenVideo={() => setIsVideoModalOpen(true)}
           onDiscover={handleDiscover}
         />
 
-        {/* 2. Feature Cards with Auto-Scroll & Swipe on Mobile */}
+        {/* 2. Feature Cards */}
         <FeatureCards />
 
-        {/* 3. Section "NOS PRODUITS" with Continuous Auto-Scroll */}
+        {/* 3. Section "PRODUCTS" with 4 Tabs & Continuous Auto-Scroll */}
         <ProductCatalog
-          onSelectProduct={(product) => handleOpenContact(product.name)}
+          onSelectProduct={(product) => setSelectedProduct(product)}
           onViewAll={() => {
             const el = document.getElementById('produits');
             el?.scrollIntoView({ behavior: 'smooth' });
           }}
         />
 
-        {/* 4. Section "NOTRE ENGAGEMENT" */}
+        {/* 4. Section "COMMITMENT" */}
         <CommitmentSection
           onLearnMore={() => handleOpenContact()}
         />
 
-        {/* 5. Section "NOS MARCHÉS" (Faithful title & exact map coordinates) */}
+        {/* 5. Section "OUR MARKETS" with SALI Commodities Hub, Russia, Hong Kong */}
         <NetworkSection
-          onOpenNetworkModal={() => handleOpenContact()}
+          onOpenNetworkModal={() => setIsNetworkModalOpen(true)}
           onOpenContactModal={() => handleOpenContact()}
         />
 
-        {/* 6. Section "NOS SERVICES" (Mobile Tabs & Desktop Sticky Scroll-Spy) */}
+        {/* 6. Section "SERVICES & EXPERTISE" */}
         <ExpertiseSection onSelectService={(serviceName) => handleOpenContact(serviceName)} />
 
         {/* 7. Key Figures Banner (3 Stats) */}
@@ -131,7 +127,7 @@ export default function App() {
         />
       </main>
 
-      {/* Official Institutional Footer */}
+      {/* Official Institutional Footer with White Icon Logo */}
       <Footer />
 
       {/* Modals */}
@@ -158,5 +154,13 @@ export default function App() {
         onContact={() => handleOpenContact()}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <MainApp />
+    </LanguageProvider>
   );
 }

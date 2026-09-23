@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { SITE_CONTENT } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeroProps {
   onOpenVideo?: () => void;
@@ -8,24 +8,25 @@ interface HeroProps {
 }
 
 export default function Hero({ onDiscover }: HeroProps) {
-  const { hero } = SITE_CONTENT;
+  const { t } = useLanguage();
+  const { hero } = t;
 
   return (
-    <section id="accueil" className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-between pt-24 lg:pt-28 pb-12 overflow-hidden">
+    <section id="accueil" className="relative min-h-[95vh] lg:min-h-screen flex flex-col justify-between pt-28 sm:pt-36 lg:pt-32 pb-10 overflow-hidden">
       {/* Background Hero Image with Optimized Mobile Focal Point */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero.png"
-          alt="Producteur agricole SALI Commodities"
-          className="w-full h-full object-cover object-[72%_25%] sm:object-center lg:object-right-top filter brightness-[0.92]"
+          alt="SALI Commodities agricultural partner"
+          className="w-full h-full object-cover object-[70%_20%] sm:object-center lg:object-right-top filter brightness-[0.92]"
         />
         {/* Subtle Dark Gradient Overlay for Maximum Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/85 via-[#0c1828]/60 to-transparent lg:w-3/4" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18]/80 via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/90 via-[#0c1828]/65 to-transparent lg:w-3/4" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18]/90 via-[#070e18]/30 to-black/20" />
       </div>
 
-      {/* Main Content Area */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-10 lg:py-20">
+      {/* Main Content Area - Pushed downward to avoid covering vest logo */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-auto mb-6 sm:my-auto pt-20 sm:pt-12 lg:py-16">
         <div className="max-w-xs sm:max-w-xl lg:max-w-2xl">
           {/* Category Tag */}
           <div className="ae ae-up inline-flex items-center gap-2 mb-3 sm:mb-4" data-d="1">
@@ -63,14 +64,14 @@ export default function Hero({ onDiscover }: HeroProps) {
 
       {/* Hero Bottom Indicators */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex items-center justify-center pt-6 border-t border-white/15 text-xs text-white/80 font-medium">
+        <div className="flex items-center justify-center pt-5 border-t border-white/15 text-xs text-white/80 font-medium">
           {/* Corridors Flow */}
           <div className="flex items-center gap-2 tracking-wide">
-            <span className="text-slate-300">Maroc</span>
+            <span className="text-slate-300">{hero.corridors[0]}</span>
             <span className="text-[#3ecfa6]">→</span>
-            <span className="text-slate-300">Afrique</span>
+            <span className="text-slate-300">{hero.corridors[1]}</span>
             <span className="text-[#3ecfa6]">→</span>
-            <span className="font-bold text-white">Monde</span>
+            <span className="font-bold text-white">{hero.corridors[2]}</span>
           </div>
         </div>
       </div>

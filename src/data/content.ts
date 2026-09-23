@@ -16,6 +16,7 @@ export interface ProductItem {
 export interface ServiceItem {
   id: string;
   title: string;
+  icon?: string;
   points: string[];
 }
 
@@ -27,7 +28,7 @@ export const SITE_CONTENT = {
     description: "Société d’import-export spécialisée dans l’agro-alimentaire et les matières premières d'exception.",
     holding: "SALI Capital",
     phone: "+212 6 61 37 39 37",
-    email: "contact@sali-digicom.com",
+    email: "contact@sali-commodities.com",
     address: "Casablanca, Maroc",
     linkedin: "https://www.linkedin.com"
   },
@@ -40,7 +41,7 @@ export const SITE_CONTENT = {
     { label: "Contact", href: "#contact" }
   ],
   hero: {
-    tag: "IMPORT • EXPORT • AGRI-ALIMENTAIRE",
+    tag: "IMPORT • EXPORT • AGRO-ALIMENTAIRE",
     titleLine1: "Des produits du terroir",
     titleLine2: "aux marchés",
     titleHighlight: "du monde",
@@ -85,12 +86,12 @@ export const SITE_CONTENT = {
       { id: "all", label: "Tous les produits" },
       { id: "maroc", label: "Origine Maroc" },
       { id: "afrique", label: "Afrique de l'Ouest" },
-      { id: "monde", label: "International & IQF" }
+      { id: "monde", label: "International" }
     ],
     items: [
       {
         id: "agrumes",
-        name: "Agrumes du Maroc",
+        name: "Agrumes",
         category: "Fruits frais - Maroc",
         desc: "Clémentines de Berkane, oranges Navel et Maroc Late parfumées, célèbres mondialement pour leur goût très sucré et leur fraîcheur incomparable.",
         image: "/images/agrumes.png",
@@ -122,7 +123,7 @@ export const SITE_CONTENT = {
       },
       {
         id: "framboises",
-        name: "Framboises d'exception",
+        name: "Framboises",
         category: "Fruits rouges - Maroc",
         desc: "Framboises de première qualité aux arômes intenses et à la tenue irréprochable, destinées aux centrales d'achat et à la haute gastronomie.",
         image: "/images/02_framboises.jpg",
@@ -130,7 +131,7 @@ export const SITE_CONTENT = {
       },
       {
         id: "poivrons",
-        name: "Poivrons trio (Rouge, Jaune, Vert)",
+        name: "Poivrons (Rouge, Jaune, Vert)",
         category: "Maraîchage - Maroc",
         desc: "Poivrons charnus et colorés, issus d'exploitations certifiées garantissant une traçabilité totale et une régularité de calibre parfaite.",
         image: "/images/03_poivrons_trio.jpg",
@@ -142,35 +143,43 @@ export const SITE_CONTENT = {
         category: "Surgélation Individuelle Rapide",
         desc: "Gamme complète de fruits et légumes surgelés IQF conservant l'intégrité cellulaire, les saveurs originelles et toutes les qualités nutritionnelles.",
         image: "/images/04_fruits_legumes_IQF.jpg",
-        origin: "monde"
+        origin: "maroc"
       },
       {
         id: "haricots-verts",
-        name: "Haricots verts extra-fins",
-        category: "Maraîchage - Maroc & Afrique",
+        name: "Haricots verts",
+        category: "Maraîchage - Maroc",
         desc: "Haricots verts cueillis à la main à maturité parfaite, triés méticuleusement pour une tendreté et une finesse optimales.",
         image: "/images/05_haricots_verts.jpg",
         origin: "maroc"
       },
       {
+        id: "avocats",
+        name: "Avocats",
+        category: "Fruits tropicaux - Afrique de l'Ouest",
+        desc: "Avocats Hass et Fuerte de qualité supérieure, récoltés à maturité optimale pour une chair crémeuse et une excellente tenue au transport international.",
+        image: "/images/09_avocats.jpg",
+        origin: "afrique"
+      },
+      {
         id: "fruits-secs",
-        name: "Fruits secs & Noix sélectionnées",
-        category: "Épicerie fine & Snacking sain",
+        name: "Fruits secs et Noix",
+        category: "Épicerie fine & Snacking sain - Afrique de l'Ouest",
         desc: "Sélection premium d'amandes, noix de cajou et fruits à coque grillés ou bruts, répondant aux standards internationaux d'import-export.",
         image: "/images/06_fruits_secs.jpg",
         origin: "afrique"
       },
       {
         id: "cacao",
-        name: "Fèves & Dérivés de Cacao",
-        category: "Matières premières - Afrique de l'Ouest",
-        desc: "Fèves de cacao fermentées et séchées de premier choix, approvisionnées auprès de coopératives équitables partenaires en Afrique de l'Ouest.",
+        name: "Dérivés de Cacao",
+        category: "Matières premières - International",
+        desc: "Fèves de cacao fermentées et séchées de premier choix, beurre et dérivés, approvisionnés auprès de coopératives équitables partenaires.",
         image: "/images/07_cacao.jpg",
-        origin: "afrique"
+        origin: "monde"
       },
       {
         id: "sardines",
-        name: "Sardines en conserve premium",
+        name: "Sardines en conserve",
         category: "Produits de la mer - Maroc",
         desc: "Sardines fraîches de l'Atlantique marocain préparées artisanalement à l'huile d'olive et aux aromates, réputées pour leur finesse gustative.",
         image: "/images/08_sardines_en_conserve.jpg",

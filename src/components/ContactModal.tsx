@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send, Phone, Mail, MapPin, CheckCircle2 } from 'lucide-react';
-import { SITE_CONTENT } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -9,25 +9,34 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ isOpen, onClose, prefillProduct }: ContactModalProps) {
-  const { brand } = SITE_CONTENT;
+  const { lang, t } = useLanguage();
+  const { brand, contactModal } = t;
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const getPrefillMessage = (prod?: string) => {
+    if (!prod) return '';
+    if (lang === 'EN') return `Hello, I would like to request information and a quote for: ${prod}.`;
+    if (lang === 'ES') return `Hola, deseo solicitar información y cotización para: ${prod}.`;
+    return `Bonjour, je souhaite obtenir des informations et une cotation pour : ${prod}.`;
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     company: '',
     email: '',
     phone: '',
     role: 'Distributeur',
-    message: prefillProduct ? `Bonjour, je souhaite obtenir des informations et une cotation pour : ${prefillProduct}.` : ''
+    message: getPrefillMessage(prefillProduct)
   });
 
   useEffect(() => {
     if (prefillProduct) {
       setFormData(prev => ({
         ...prev,
-        message: `Bonjour, je souhaite obtenir des informations et une cotation pour : ${prefillProduct}.`
+        message: getPrefillMessage(prefillProduct)
       }));
     }
-  }, [prefillProduct, isOpen]);
+  }, [prefillProduct, isOpen, lang]);
 
   if (!isOpen) return null;
 
@@ -49,6 +58,15 @@ export default function ContactModal({ isOpen, onClose, prefillProduct }: Contac
     onClose();
   };
 
+  const roleOptions = [
+    { value: "Distributor", label: lang === 'EN' ? "Distributor / Wholesaler" : lang === 'ES' ? "Distribuidor / Mayorista" : "Distributeur / Grossiste" },
+    { value: "Importer", label: lang === 'EN' ? "Importer" : lang === 'ES' ? "Importador" : "Importateur" },
+    { value: "FoodIndustry", label: lang === 'EN' ? "Food Processing / Industry" : lang === 'ES' ? "Industria alimentaria" : "Industriel / Transformateur" },
+    { value: "Producer", label: lang === 'EN' ? "Producer / Cooperative" : lang === 'ES' ? "Productor / Cooperativa" : "Producteur / Coopérative" },
+    { value: "Broker", label: lang === 'EN' ? "Commodity Broker" : lang === 'ES' ? "Broker / Corredor" : "Courtier / Broker" },
+    { value: "Other", label: lang === 'EN' ? "Other" : lang === 'ES' ? "Otro" : "Autre" }
+  ];
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm">
       <div className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100 max-h-[90vh] flex flex-col">
@@ -56,16 +74,16 @@ export default function ContactModal({ isOpen, onClose, prefillProduct }: Contac
         <div className="bg-[#1c2c46] text-white p-6 sm:p-7 flex items-center justify-between">
           <div>
             <span className="text-[11px] font-bold text-[#3ecfa6] uppercase tracking-wider block mb-1">
-              Contact Professionnel & Cotations
+              SALI Commodities
             </span>
             <h3 className="text-xl sm:text-2xl font-bold">
-              Parlons de votre projet d'import-export
+              {contactModal.title}
             </h3>
           </div>
           <button
             onClick={onClose}
             className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
-            aria-label="Fermer"
+            aria-label={contactModal.close}
           >
             <X className="w-5 h-5" />
           </button>
@@ -79,16 +97,16 @@ export default function ContactModal({ isOpen, onClose, prefillProduct }: Contac
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <h4 className="text-xl font-bold text-[#1c2c46]">
-                Message envoyé avec succès
+                {contactModal.successTitle}
               </h4>
               <p className="text-sm text-slate-600 max-w-md mx-auto">
-                Notre équipe commerciale va étudier votre demande et vous recontacter dans les plus brefs délais avec une proposition adaptée.
+                {contactModal.successDesc}
               </p>
               <button
                 onClick={handleReset}
                 className="mt-4 bg-[#1c2c46] text-white text-xs font-bold px-6 py-2.5 rounded-full"
               >
-                Fermer
+                {contactModal.close}
               </button>
             </div>
           ) : (
@@ -96,7 +114,7 @@ export default function ContactModal({ isOpen, onClose, prefillProduct }: Contac
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Nom & Prénom *
+                    {contactModal.fullName} *
                   </label>
                   <input
                     type="text"
@@ -110,7 +128,7 @@ export default function ContactModal({ isOpen, onClose, prefillProduct }: Contac
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Société / Organisation *
+                    {contactModal.company} *
                   </label>
                   <input
                     type="text"
@@ -126,21 +144,21 @@ export default function ContactModal({ isOpen, onClose, prefillProduct }: Contac
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Email professionnel *
+                    {contactModal.email} *
                   </label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="nom@entreprise.com"
+                    placeholder="contact@company.com"
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1d9878] focus:ring-2 focus:ring-emerald-50"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Téléphone / WhatsApp
+                    {contactModal.phone}
                   </label>
                   <input
                     type="tel"
@@ -154,32 +172,31 @@ export default function ContactModal({ isOpen, onClose, prefillProduct }: Contac
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Votre profil
+                  {contactModal.inquiryType}
                 </label>
                 <select
                   value={formData.role}
                   onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1d9878] focus:ring-2 focus:ring-emerald-50 bg-white"
                 >
-                  <option value="Distributeur">Distributeur / Grossiste</option>
-                  <option value="Importateur">Importateur</option>
-                  <option value="Industriel">Industriel / Transformateur</option>
-                  <option value="Producteur">Producteur / Coopérative</option>
-                  <option value="Courtier">Courtier / Broker</option>
-                  <option value="Autre">Autre</option>
+                  {roleOptions.map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </option>
+                  ))}
                 </select>
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Votre message ou demande de cotation *
+                  {contactModal.message} *
                 </label>
                 <textarea
                   required
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Décrivez vos besoins : volumes souhaités, période de livraison, certifications requises..."
+                  placeholder={lang === 'EN' ? "Describe your requirements: volumes, destination port, certifications needed..." : lang === 'ES' ? "Describa sus necesidades: volúmenes deseados, puerto de destino, certificaciones..." : "Décrivez vos besoins : volumes souhaités, période de livraison, certifications requises..."}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1d9878] focus:ring-2 focus:ring-emerald-50"
                 />
               </div>
@@ -206,7 +223,7 @@ export default function ContactModal({ isOpen, onClose, prefillProduct }: Contac
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#1d9878] hover:bg-[#167d63] text-white text-sm font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Envoyer la demande</span>
+                  <span>{contactModal.submit}</span>
                 </button>
               </div>
             </form>

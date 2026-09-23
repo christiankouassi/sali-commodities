@@ -1,19 +1,20 @@
 import React from 'react';
-import { SITE_CONTENT } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function StatsSection() {
-  const { stats } = SITE_CONTENT;
+  const { t } = useLanguage();
+  const { stats } = t;
 
   return (
     <section id="chiffres" className="relative py-20 lg:py-28 overflow-hidden ae ae-up" data-d="1">
-      {/* Background with luminous 08_fond_chiffres_verger.png without heavy black mask */}
+      {/* Background with luminous fond-chiffres.png */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/fond-chiffres.png"
-          alt="Vergers agricoles SALI Commodities"
+          alt="Agricultural orchards SALI Commodities"
           className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
         />
-        {/* Subtle luminous gradient preserving orchard vibrancy while keeping text crystal clear */}
+        {/* Subtle luminous gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#071320]/80 via-[#071320]/45 to-[#071320]/30" />
       </div>
 

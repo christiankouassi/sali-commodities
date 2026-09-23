@@ -1,18 +1,25 @@
-﻿import React from 'react';
+import React from 'react';
 import { Phone, Mail, MapPin, Linkedin } from 'lucide-react';
 import Logo from './Logo';
-import { SITE_CONTENT } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
-  const { brand, nav, footer } = SITE_CONTENT;
+  const { lang, t } = useLanguage();
+  const { brand, nav, footer } = t;
+
+  const productLinks = [
+    { label: lang === 'EN' ? 'Morocco Origin' : lang === 'ES' ? 'Origen Marruecos' : 'Maroc', href: '#produits' },
+    { label: lang === 'EN' ? 'West Africa' : lang === 'ES' ? 'África Occidental' : 'Afrique de l\'Ouest', href: '#produits' },
+    { label: lang === 'EN' ? 'International' : lang === 'ES' ? 'Internacional' : 'International', href: '#produits' }
+  ];
 
   return (
     <footer id="contact" className="bg-[#070e1a] text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-slate-800">
-          {/* Column 1: Brand & Slogan */}
+          {/* Column 1: Brand & Slogan with White Icon Logo as requested */}
           <div className="lg:col-span-4 space-y-4">
-            <Logo size="md" light={true} />
+            <Logo size="md" light={true} whiteIcon={true} />
             <p className="font-['Brush_Script_MT',cursive] italic text-base text-slate-300 tracking-wide pt-1">
               "{brand.baseline}"
             </p>
@@ -24,7 +31,7 @@ export default function Footer() {
           {/* Column 2: Navigation */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4">
-              Navigation
+              {footer.navTitle}
             </h4>
             <ul className="space-y-2.5">
               {nav.map((item) => (
@@ -43,31 +50,23 @@ export default function Footer() {
           {/* Column 3: Products */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4">
-              Produits
+              {footer.productsTitle}
             </h4>
             <ul className="space-y-2.5">
-              <li>
-                <a href="#produits" className="hover:text-white transition-colors">
-                  Maroc
-                </a>
-              </li>
-              <li>
-                <a href="#produits" className="hover:text-white transition-colors">
-                  Afrique de l'Ouest
-                </a>
-              </li>
-              <li>
-                <a href="#produits" className="hover:text-white transition-colors">
-                  Autres origines
-                </a>
-              </li>
+              {productLinks.map((item, idx) => (
+                <li key={idx}>
+                  <a href={item.href} className="hover:text-white transition-colors">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Column 4: Contact */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4">
-              Contact
+              {footer.contactTitle}
             </h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2.5">
@@ -92,7 +91,7 @@ export default function Footer() {
           {/* Column 5: Socials */}
           <div className="lg:col-span-1 space-y-3">
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4">
-              Suivez-nous
+              {footer.socialTitle}
             </h4>
             <div className="flex items-center gap-3">
               <a
@@ -116,11 +115,11 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             <a href="#" className="hover:text-slate-300 transition-colors">
-              Mentions légales
+              {footer.legalLink}
             </a>
             <span>|</span>
             <a href="#" className="hover:text-slate-300 transition-colors">
-              Politique de confidentialité
+              {footer.privacyLink}
             </a>
           </div>
 

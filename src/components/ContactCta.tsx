@@ -1,24 +1,25 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { SITE_CONTENT } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ContactCtaProps {
   onOpenModal: () => void;
 }
 
 export default function ContactCta({ onOpenModal }: ContactCtaProps) {
-  const { contactCta } = SITE_CONTENT;
+  const { t } = useLanguage();
+  const { contactCta } = t;
 
   return (
     <section id="contact-cta" className="relative py-20 lg:py-28 overflow-hidden ae ae-up" data-d="1">
-      {/* Background with 09_fond_contact_tomates.png: fresh, faithful to maquette */}
+      {/* Background with fond-contact.png */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/fond-contact.png"
-          alt="Cultures de tomates fraîches SALI"
+          alt="Fresh agricultural produce SALI Commodities"
           className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05]"
         />
-        {/* Clean elegant gradient without heavy dark red tint */}
+        {/* Clean elegant gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#071320]/85 via-[#071320]/55 to-black/30" />
       </div>
 
