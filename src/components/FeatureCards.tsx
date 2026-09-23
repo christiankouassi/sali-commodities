@@ -49,8 +49,8 @@ export default function FeatureCards() {
   const displayItems = [...t.featureBoxes, ...t.featureBoxes];
 
   return (
-    <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-12 ae ae-up" data-d="1">
-      <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-100 p-3 sm:p-6 lg:p-7">
+    <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-12 overflow-hidden ae ae-up" data-d="1">
+      <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-100 p-3 sm:p-6 lg:p-7 overflow-hidden">
         
         {/* Mobile: Smooth Infinite Auto-scroll with Touch / Hover Pause & Swipe */}
         <div

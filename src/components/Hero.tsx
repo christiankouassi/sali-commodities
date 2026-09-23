@@ -16,17 +16,17 @@ export default function Hero({ onDiscover }: HeroProps) {
       {/* Background Hero Image with Optimized Mobile Focal Point */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero.png"
+          src="/images/hero.jpg"
           alt="SALI Commodities agricultural partner"
-          className="w-full h-full object-cover object-[70%_20%] sm:object-center lg:object-right-top filter brightness-[0.92]"
+          className="w-full h-[calc(100%+165px)] sm:h-full object-cover object-[83%_0%] sm:object-center lg:object-right-top filter brightness-[0.92] -translate-y-[165px] sm:translate-y-0 transition-transform duration-300"
         />
         {/* Subtle Dark Gradient Overlay for Maximum Readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/90 via-[#0c1828]/65 to-transparent lg:w-3/4" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#070e18]/90 via-[#070e18]/30 to-black/20" />
       </div>
 
-      {/* Main Content Area - Pushed downward to avoid covering vest logo */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-auto mb-6 sm:my-auto pt-20 sm:pt-12 lg:py-16">
+      {/* Main Content Area - Anchored at bottom on mobile to leave vest logo completely clear */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-auto mb-4 sm:my-auto pt-0 sm:pt-12 lg:py-16">
         <div className="max-w-xs sm:max-w-xl lg:max-w-2xl">
           {/* Category Tag */}
           <div className="ae ae-up inline-flex items-center gap-2 mb-3 sm:mb-4" data-d="1">

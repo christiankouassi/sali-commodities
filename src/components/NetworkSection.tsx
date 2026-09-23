@@ -71,10 +71,10 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
 
           {/* Right Column: World Map with D3 NaturalEarth1 Projection & Sequential Entrance */}
           <div className="lg:col-span-8 ae ae-pop" data-d="1.5">
-            <div className="relative w-full rounded-3xl overflow-hidden bg-white shadow-xl shadow-slate-200/50 border border-slate-200/80 p-3 sm:p-5 select-none">
+            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-xl shadow-slate-200/50 border border-slate-200/80 p-1 sm:p-5 select-none">
               
-              {/* Stage Container: aspect-ratio 1750 / 900 matching user's exact specification */}
-              <div className="relative w-full aspect-[1750/900] [container-type:inline-size]">
+              {/* Stage Container: aspect-ratio 1750 / 900 scaled to fill card space on mobile */}
+              <div className="relative w-full aspect-[1750/900] [container-type:inline-size] scale-[1.18] sm:scale-100 origin-center transition-transform">
                 
                 {/* SVG Map */}
                 <svg
@@ -218,7 +218,7 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
 
                   {/* Morocco Central Hub Label: SALI Commodities */}
                   <div
-                    className="absolute bg-[#1C2C46] text-white font-bold text-[clamp(6.5px,0.92cqw,9px)] px-[0.6cqw] py-[0.18cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.15)] whitespace-nowrap leading-normal -translate-x-1/2 -translate-y-1/2"
+                    className="absolute bg-[#1C2C46] text-white font-medium text-[clamp(5px,0.72cqw,8px)] px-[0.45cqw] py-[0.1cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.15)] whitespace-nowrap leading-tight -translate-x-1/2 -translate-y-1/2"
                     style={{
                       left: HUB_NODE.left,
                       top: HUB_NODE.top,

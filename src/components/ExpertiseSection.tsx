@@ -84,7 +84,7 @@ export default function ExpertiseSection({ onSelectService }: ExpertiseSectionPr
 
   const contactButtonText = lang === 'EN' ? 'Inquire About This Service' : lang === 'ES' ? 'Consultar sobre este servicio' : 'Nous contacter pour ce service';
   const selectedServiceLabel = lang === 'EN' ? 'Selected Service:' : lang === 'ES' ? 'Servicio seleccionado:' : 'Service sélectionné :';
-  const requestServiceText = lang === 'EN' ? 'Request this service' : lang === 'ES' ? 'Solicitar este servicio' : 'Demander ce service';
+  const requestServiceText = lang === 'EN' ? 'Quote' : lang === 'ES' ? 'Cotizar' : 'Devis';
 
   return (
     <section id="expertise" className="py-20 lg:py-28 bg-[#f8fafc] border-t border-slate-100 relative">
@@ -142,22 +142,22 @@ export default function ExpertiseSection({ onSelectService }: ExpertiseSectionPr
                       : 'bg-white text-slate-700 border-slate-200/80 shadow-sm hover:border-slate-300 hover:shadow-md'
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-4 mb-5 pb-4 border-b border-white/15">
-                    <div className="flex items-center gap-3.5">
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
+                  <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5 pb-3 sm:pb-4 border-b border-white/15 min-w-0">
+                    <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1">
+                      <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
                         isActive
                           ? 'bg-white/10 border border-white/20 text-[#3ecfa6]'
                           : 'bg-emerald-50 border border-emerald-100 text-[#1d9878]'
                       }`}>
                         {getServiceIcon(service.icon || service.id, isActive)}
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <span className={`text-[10px] font-bold uppercase tracking-wider block ${
                           isActive ? 'text-[#3ecfa6]' : 'text-[#1d9878]'
                         }`}>
                           0{index + 1}
                         </span>
-                        <h3 className={`text-base sm:text-lg font-bold ${
+                        <h3 className={`text-sm sm:text-base lg:text-lg font-bold leading-snug truncate sm:whitespace-normal ${
                           isActive ? 'text-white' : 'text-[#1c2c46]'
                         }`}>
                           {service.title}
@@ -170,14 +170,14 @@ export default function ExpertiseSection({ onSelectService }: ExpertiseSectionPr
                         e.stopPropagation();
                         handleContactClick(service.title);
                       }}
-                      className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 flex-shrink-0 ${
+                      className={`text-[11px] sm:text-xs font-semibold px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full transition-all flex items-center gap-1 sm:gap-1.5 flex-shrink-0 whitespace-nowrap ${
                         isActive
                           ? 'bg-[#1d9878] text-white hover:bg-[#158064]'
                           : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                       }`}
                     >
                       <span>{requestServiceText}</span>
-                      <ArrowRight className="w-3 h-3" />
+                      <ArrowRight className="w-3 h-3 flex-shrink-0" />
                     </button>
                   </div>
 
