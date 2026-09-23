@@ -18,11 +18,11 @@ export default function Hero({ onDiscover }: HeroProps) {
         <img
           src="/images/hero.jpg"
           alt="SALI Commodities agricultural partner"
-          className="w-full h-[calc(100%+165px)] sm:h-full object-cover object-[83%_0%] sm:object-center lg:object-right-top filter brightness-[0.92] -translate-y-[165px] sm:translate-y-0 transition-transform duration-300"
+          className="w-full h-[calc(100%+160px)] sm:h-full object-cover object-[75%_0%] sm:object-center lg:object-right-top filter brightness-[1.03] -translate-y-[160px] sm:translate-y-0 transition-transform duration-300"
         />
         {/* Subtle Dark Gradient Overlay for Maximum Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/90 via-[#0c1828]/65 to-transparent lg:w-3/4" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18]/90 via-[#070e18]/30 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/70 via-[#0c1828]/35 to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18]/95 via-[#070e18]/45 via-45% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
       </div>
 
       {/* Main Content Area - Anchored at bottom on mobile to leave vest logo completely clear */}
