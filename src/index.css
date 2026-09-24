@@ -100,11 +100,20 @@ html, body {
   transition: fill 0.3s ease;
 }
 
+.map-route-bg {
+  fill: none;
+  stroke: #1D9878;
+  stroke-width: 1.4;
+  stroke-dasharray: 2 4;
+  stroke-linecap: round;
+  opacity: 0.22;
+}
+
 .map-route {
   fill: none;
   stroke: #1D9878;
-  stroke-width: 2.8;
-  stroke-dasharray: 2.5 6.5;
+  stroke-width: 2.4;
+  stroke-dasharray: 2 6;
   stroke-linecap: round;
   stroke-dashoffset: 0;
   animation: mapFlow 1.4s linear infinite;

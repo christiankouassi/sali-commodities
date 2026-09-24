@@ -81,27 +81,6 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                   viewBox={`0 0 ${WORLD_MAP_WIDTH} ${WORLD_MAP_HEIGHT}`}
                   className="absolute inset-0 w-full h-full block pointer-events-none"
                 >
-                  <defs>
-                    {/* Dynamic Masks for each route line to animate outward drawing from Morocco to destination */}
-                    {NETWORK_NODES.map((node, i) => (
-                      <mask key={`mask-${node.id}`} id={`route-mask-${i}`}>
-                        <path
-                          d={node.routeD}
-                          fill="none"
-                          stroke="white"
-                          strokeWidth="20"
-                          pathLength="1000"
-                          className={isInView ? "map-route-draw" : ""}
-                          style={{
-                            animationDelay: `${0.2 + i * 0.25}s`,
-                            animationDuration: "1.2s",
-                            animationFillMode: "forwards"
-                          }}
-                        />
-                      </mask>
-                    ))}
-                  </defs>
-
                   {/* World Vector Contours: 100% exact geographic geometry */}
                   <g className="map-countries" fill="#DDE4EE" stroke="#ffffff" strokeWidth="0.8">
                     {COUNTRY_PATHS.map((pathStr, index) => (
@@ -111,64 +90,36 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
 
                   {/* Dynamic Export Flow Lines */}
                   <g className="routes-group">
-                    {NETWORK_NODES.map((node, i) => (
-                      <g key={`route-${node.id}`} mask={`url(#route-mask-${i})`}>
-                        {/* Static Route Line */}
+                    {NETWORK_NODES.map((node) => (
+                      <g key={`route-${node.id}`}>
+                        {/* Background Soft Static Guide Line */}
                         <path
                           d={node.routeD}
-                          fill="none"
-                          stroke="#1D9878"
-                          strokeWidth="1.8"
-                          strokeDasharray="4 4"
-                          strokeLinecap="round"
-                          opacity="0.75"
+                          className="map-route-bg"
                         />
-                        {/* Highlighting Glowing Flow Line */}
+                        {/* Dynamic Animated Flowing Route Line */}
                         <path
                           d={node.routeD}
-                          fill="none"
-                          stroke="#3ECFA6"
-                          strokeWidth="2.2"
-                          strokeDasharray="6 12"
-                          strokeLinecap="round"
-                          className="map-route-flow"
-                          style={{ animationDelay: node.delay }}
+                          className="map-route"
+                          style={{
+                            animationDelay: node.delay
+                          }}
                         />
                       </g>
                     ))}
                   </g>
 
                   {/* Central Hub (Morocco / SALI Commodities) Pulsing Target Anchor */}
-                  <g
-                    className="hub-group"
-                    style={{
-                      opacity: isInView ? 1 : 0,
-                      transform: isInView ? "scale(1)" : "scale(0.2)",
-                      transformOrigin: `${HUB_NODE.x}px ${HUB_NODE.y}px`,
-                      transition: isInView
-                        ? "opacity 0.5s ease-out 0.1s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s"
-                        : "none"
-                    }}
-                  >
+                  <g className="hub-group">
                     <circle className="map-hub-ring" cx={HUB_NODE.x} cy={HUB_NODE.y} r="7" />
                     <circle cx={HUB_NODE.x} cy={HUB_NODE.y} r="7" fill="#1C2C46" />
                     <circle cx={HUB_NODE.x} cy={HUB_NODE.y} r="3" fill="#3ECFA6" />
                   </g>
 
-                  {/* Destination Dots with Pulsing Green Rings (Sequenced one by one) */}
+                  {/* Destination Dots with Pulsing Green Rings */}
                   <g className="dots-group">
-                    {NETWORK_NODES.map((node, i) => (
-                      <g
-                        key={node.id}
-                        style={{
-                          opacity: isInView ? 1 : 0,
-                          transform: isInView ? "scale(1)" : "scale(0.2)",
-                          transformOrigin: `${node.x}px ${node.y}px`,
-                          transition: isInView
-                            ? `opacity 0.4s ease-out ${0.3 + i * 0.25}s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${0.3 + i * 0.25}s`
-                            : "none"
-                        }}
-                      >
+                    {NETWORK_NODES.map((node) => (
+                      <g key={node.id}>
                         <circle
                           className="map-pulse"
                           cx={node.x}
@@ -198,18 +149,14 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                 {/* HTML Labels Overlay */}
                 <div className="absolute inset-0 pointer-events-none">
                   {/* Destination Node Labels: Delicate, compact rounded pill capsules */}
-                  {NETWORK_NODES.map((node, i) => (
+                  {NETWORK_NODES.map((node) => (
                     <div
                       key={node.id}
                       className="absolute bg-white/95 backdrop-blur-[2px] text-[#253D62] font-semibold text-[clamp(6.5px,0.92cqw,9px)] px-[0.6cqw] py-[0.18cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.12)] whitespace-nowrap border border-slate-200/80 leading-normal"
                       style={{
                         left: node.left,
                         top: node.top,
-                        transform: node.transform,
-                        opacity: isInView ? 1 : 0,
-                        transition: isInView
-                          ? `opacity 0.4s ease-out ${0.3 + i * 0.25}s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${0.3 + i * 0.25}s`
-                          : "none"
+                        transform: node.transform
                       }}
                     >
                       {t.network.destinations[node.id] || node.name}
@@ -221,11 +168,7 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                     className="absolute bg-[#1C2C46] text-white font-medium text-[clamp(5px,0.72cqw,8px)] px-[0.45cqw] py-[0.1cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.15)] whitespace-nowrap leading-tight -translate-x-1/2 -translate-y-1/2"
                     style={{
                       left: HUB_NODE.left,
-                      top: HUB_NODE.top,
-                      opacity: isInView ? 1 : 0,
-                      transition: isInView
-                        ? "opacity 0.4s ease-out 0.15s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s"
-                        : "none"
+                      top: HUB_NODE.top
                     }}
                   >
                     {HUB_NODE.name}

@@ -261,9 +261,9 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "poivrons",
-          name: "Bell Peppers (Red, Yellow, Green)",
+          name: "Peppers (Red, Yellow, Green)",
           category: "Market Gardening - Morocco",
-          desc: "Vibrant, thick-fleshed bell peppers from certified partner farms ensuring total traceability and uniform sizing for export.",
+          desc: "Vibrant, thick-fleshed peppers from certified partner farms ensuring total traceability and uniform sizing for export.",
           image: "/images/03_poivrons_trio.jpg",
           origin: "maroc",
           details: {
