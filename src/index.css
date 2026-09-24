@@ -87,15 +87,15 @@ html, body {
    MAP STYLES FROM "Carte mondiale réseau Maroc"
    ========================================================= */
 @keyframes mapFlow {
-  to { stroke-dashoffset: -16; }
+  to { stroke-dashoffset: -18; }
 }
 
 @keyframes mapPulseRing {
-  0% { opacity: 0.65; transform: scale(1); }
+  0% { opacity: 0.7; transform: scale(1); }
   100% { opacity: 0; transform: scale(2.8); }
 }
 
-@keyframes drawRouteLine {
+@keyframes drawMask {
   from { stroke-dashoffset: 1000; }
   to { stroke-dashoffset: 0; }
 }
@@ -115,11 +115,6 @@ html, body {
   }
 }
 
-@keyframes fadeInElement {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 .map-land {
   fill: #E8ECF2;
   transition: fill 0.3s ease;
@@ -130,33 +125,30 @@ html, body {
   animation: popLocationCard 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.map-route-draw {
-  fill: none;
-  stroke: #1D9878;
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  stroke-dasharray: 1000;
+.map-mask-path {
+  stroke-dasharray: 1000 1000;
   stroke-dashoffset: 1000;
-  animation: drawRouteLine 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: drawMask 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-.map-route-bg {
+/* Static Dashed Network Base Track */
+.map-route-static {
   fill: none;
   stroke: #1D9878;
-  stroke-width: 1.4;
-  stroke-dasharray: 2 4;
+  stroke-width: 1.8;
+  stroke-dasharray: 4 4;
   stroke-linecap: round;
-  opacity: 0.22;
+  opacity: 0.75;
 }
 
-.map-route {
+/* Glowing Flowing Network Packets */
+.map-route-flow {
   fill: none;
-  stroke: #1D9878;
-  stroke-width: 2.4;
-  stroke-dasharray: 2 6;
+  stroke: #3ECFA6;
+  stroke-width: 2.2;
+  stroke-dasharray: 6 12;
   stroke-linecap: round;
-  stroke-dashoffset: 0;
-  animation: mapFlow 1.4s linear infinite;
+  animation: mapFlow 1.2s linear infinite;
 }
 
 .map-pulse {

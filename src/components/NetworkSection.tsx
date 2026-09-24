@@ -81,6 +81,39 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                   viewBox={`0 0 ${WORLD_MAP_WIDTH} ${WORLD_MAP_HEIGHT}`}
                   className="absolute inset-0 w-full h-full block pointer-events-none"
                 >
+                  <defs>
+                    {/* Dynamic Masks for each route line to unmask outward from Morocco to destination */}
+                    {NETWORK_NODES.map((node, i) => {
+                      const badgeDelay = 0.25 + i * 0.50;
+                      const lineDelay = badgeDelay + 0.20;
+                      return (
+                        <mask
+                          key={`mask-${node.id}`}
+                          id={`route-mask-${i}`}
+                          maskUnits="userSpaceOnUse"
+                          maskContentUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width={WORLD_MAP_WIDTH}
+                          height={WORLD_MAP_HEIGHT}
+                        >
+                          <path
+                            d={node.routeD}
+                            fill="none"
+                            stroke="white"
+                            strokeWidth="30"
+                            strokeLinecap="round"
+                            pathLength="1000"
+                            className={isInView ? "map-mask-path" : ""}
+                            style={{
+                              animationDelay: `${lineDelay}s`
+                            }}
+                          />
+                        </mask>
+                      );
+                    })}
+                  </defs>
+
                   {/* World Vector Contours: 100% exact geographic geometry */}
                   <g className="map-countries" fill="#DDE4EE" stroke="#ffffff" strokeWidth="0.8">
                     {COUNTRY_PATHS.map((pathStr, index) => (
@@ -88,47 +121,25 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                     ))}
                   </g>
 
-                  {/* Dynamic Export Flow Lines */}
+                  {/* Dynamic Export Flow Lines with FULL NETWORK EFFECT */}
                   <g className="routes-group">
-                    {NETWORK_NODES.map((node, i) => {
-                      const badgeDelay = 0.25 + i * 0.50;
-                      const lineDelay = badgeDelay + 0.20;
-                      const arriveDelay = lineDelay + 0.60;
-                      return (
-                        <g key={`route-${node.id}`}>
-                          {/* Soft Background Static Guide Line - reveals when line arrives */}
-                          <path
-                            d={node.routeD}
-                            className="map-route-bg"
-                            style={{
-                              opacity: 0,
-                              animation: isInView
-                                ? `fadeInElement 0.4s ease ${arriveDelay}s forwards`
-                                : "none"
-                            }}
-                          />
-                          {/* Animated Forward Line Drawing from Morocco to Location Card */}
-                          <path
-                            d={node.routeD}
-                            className={isInView ? "map-route-draw" : "opacity-0"}
-                            style={{
-                              animationDelay: `${lineDelay}s`
-                            }}
-                          />
-                          {/* Continuous Flowing Stream along the connected route */}
-                          <path
-                            d={node.routeD}
-                            className="map-route"
-                            style={{
-                              opacity: 0,
-                              animation: isInView
-                                ? `fadeInElement 0.4s ease ${arriveDelay}s forwards, mapFlow 1.4s linear infinite`
-                                : "none"
-                            }}
-                          />
-                        </g>
-                      );
-                    })}
+                    {NETWORK_NODES.map((node, i) => (
+                      <g key={`route-${node.id}`} mask={`url(#route-mask-${i})`}>
+                        {/* Static Dashed Base Network Track */}
+                        <path
+                          d={node.routeD}
+                          className="map-route-static"
+                        />
+                        {/* Glowing Flowing Network Packets Stream */}
+                        <path
+                          d={node.routeD}
+                          className="map-route-flow"
+                          style={{
+                            animationDelay: node.delay
+                          }}
+                        />
+                      </g>
+                    ))}
                   </g>
 
                   {/* Central Hub (Morocco / SALI Commodities) Pulsing Target Anchor */}
@@ -241,7 +252,7 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                         }}
                       >
                         <div
-                          className={`bg-white/95 backdrop-blur-[2px] text-[#253D62] font-semibold text-[clamp(6.5px,0.92cqw,9px)] px-[0.6cqw] py-[0.18cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.12)] whitespace-nowrap border border-slate-200/80 leading-normal ${
+                          className={`bg-white/95 backdrop-blur-[2px] text-[#253D62] font-semibold text-[clamp(8.5px,1.0cqw,13px)] px-[0.7cqw] py-[0.22cqw] rounded-full shadow-[0_2px_8px_rgba(20,30,50,0.12)] whitespace-nowrap border border-slate-200/80 leading-normal ${
                             isInView ? "map-card-pop" : "opacity-0"
                           }`}
                           style={{
@@ -263,7 +274,7 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
                     }}
                   >
                     <div
-                      className={`bg-[#1C2C46] text-white font-medium text-[clamp(5px,0.72cqw,8px)] px-[0.45cqw] py-[0.1cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.15)] whitespace-nowrap leading-tight ${
+                      className={`bg-[#1C2C46] text-white font-medium text-[clamp(7.5px,0.85cqw,11px)] px-[0.55cqw] py-[0.15cqw] rounded-full shadow-[0_2px_8px_rgba(20,30,50,0.18)] whitespace-nowrap leading-tight ${
                         isInView ? "map-card-pop" : "opacity-0"
                       }`}
                       style={{
