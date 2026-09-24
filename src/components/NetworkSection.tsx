@@ -90,88 +90,188 @@ export default function NetworkSection({ onOpenNetworkModal, onOpenContactModal 
 
                   {/* Dynamic Export Flow Lines */}
                   <g className="routes-group">
-                    {NETWORK_NODES.map((node) => (
-                      <g key={`route-${node.id}`}>
-                        {/* Background Soft Static Guide Line */}
-                        <path
-                          d={node.routeD}
-                          className="map-route-bg"
-                        />
-                        {/* Dynamic Animated Flowing Route Line */}
-                        <path
-                          d={node.routeD}
-                          className="map-route"
-                          style={{
-                            animationDelay: node.delay
-                          }}
-                        />
-                      </g>
-                    ))}
+                    {NETWORK_NODES.map((node, i) => {
+                      const badgeDelay = 0.25 + i * 0.50;
+                      const lineDelay = badgeDelay + 0.20;
+                      const arriveDelay = lineDelay + 0.60;
+                      return (
+                        <g key={`route-${node.id}`}>
+                          {/* Soft Background Static Guide Line - reveals when line arrives */}
+                          <path
+                            d={node.routeD}
+                            className="map-route-bg"
+                            style={{
+                              opacity: 0,
+                              animation: isInView
+                                ? `fadeInElement 0.4s ease ${arriveDelay}s forwards`
+                                : "none"
+                            }}
+                          />
+                          {/* Animated Forward Line Drawing from Morocco to Location Card */}
+                          <path
+                            d={node.routeD}
+                            className={isInView ? "map-route-draw" : "opacity-0"}
+                            style={{
+                              animationDelay: `${lineDelay}s`
+                            }}
+                          />
+                          {/* Continuous Flowing Stream along the connected route */}
+                          <path
+                            d={node.routeD}
+                            className="map-route"
+                            style={{
+                              opacity: 0,
+                              animation: isInView
+                                ? `fadeInElement 0.4s ease ${arriveDelay}s forwards, mapFlow 1.4s linear infinite`
+                                : "none"
+                            }}
+                          />
+                        </g>
+                      );
+                    })}
                   </g>
 
                   {/* Central Hub (Morocco / SALI Commodities) Pulsing Target Anchor */}
-                  <g className="hub-group">
-                    <circle className="map-hub-ring" cx={HUB_NODE.x} cy={HUB_NODE.y} r="7" />
-                    <circle cx={HUB_NODE.x} cy={HUB_NODE.y} r="7" fill="#1C2C46" />
-                    <circle cx={HUB_NODE.x} cy={HUB_NODE.y} r="3" fill="#3ECFA6" />
+                  <g
+                    className="hub-group"
+                    style={{
+                      transformOrigin: `${HUB_NODE.x}px ${HUB_NODE.y}px`
+                    }}
+                  >
+                    <circle
+                      className="map-hub-ring"
+                      cx={HUB_NODE.x}
+                      cy={HUB_NODE.y}
+                      r="7"
+                      style={{
+                        animationDelay: "0.2s"
+                      }}
+                    />
+                    <circle
+                      cx={HUB_NODE.x}
+                      cy={HUB_NODE.y}
+                      r="7"
+                      fill="#1C2C46"
+                      className={isInView ? "map-card-pop" : "opacity-0"}
+                      style={{
+                        animationDelay: "0.1s",
+                        transformOrigin: `${HUB_NODE.x}px ${HUB_NODE.y}px`
+                      }}
+                    />
+                    <circle
+                      cx={HUB_NODE.x}
+                      cy={HUB_NODE.y}
+                      r="3"
+                      fill="#3ECFA6"
+                      className={isInView ? "map-card-pop" : "opacity-0"}
+                      style={{
+                        animationDelay: "0.1s",
+                        transformOrigin: `${HUB_NODE.x}px ${HUB_NODE.y}px`
+                      }}
+                    />
                   </g>
 
                   {/* Destination Dots with Pulsing Green Rings */}
                   <g className="dots-group">
-                    {NETWORK_NODES.map((node) => (
-                      <g key={node.id}>
-                        <circle
-                          className="map-pulse"
-                          cx={node.x}
-                          cy={node.y}
-                          r="7"
-                          style={{ animationDelay: node.delay }}
-                        />
-                        <circle
-                          cx={node.x}
-                          cy={node.y}
-                          r="7"
-                          fill="#ffffff"
-                          stroke="#1D9878"
-                          strokeWidth="2.5"
-                        />
-                        <circle
-                          cx={node.x}
-                          cy={node.y}
-                          r="3.2"
-                          fill="#1D9878"
-                        />
-                      </g>
-                    ))}
+                    {NETWORK_NODES.map((node, i) => {
+                      const badgeDelay = 0.25 + i * 0.50;
+                      const lineDelay = badgeDelay + 0.20;
+                      const arriveDelay = lineDelay + 0.60;
+                      return (
+                        <g
+                          key={node.id}
+                          style={{
+                            transformOrigin: `${node.x}px ${node.y}px`
+                          }}
+                        >
+                          {/* Pulsing ring activates once line connects */}
+                          <circle
+                            className="map-pulse"
+                            cx={node.x}
+                            cy={node.y}
+                            r="7"
+                            style={{
+                              animationDelay: `${arriveDelay}s`
+                            }}
+                          />
+                          {/* Destination Dot marker pops in with location card */}
+                          <circle
+                            cx={node.x}
+                            cy={node.y}
+                            r="7"
+                            fill="#ffffff"
+                            stroke="#1D9878"
+                            strokeWidth="2.5"
+                            className={isInView ? "map-card-pop" : "opacity-0"}
+                            style={{
+                              animationDelay: `${badgeDelay}s`,
+                              transformOrigin: `${node.x}px ${node.y}px`
+                            }}
+                          />
+                          <circle
+                            cx={node.x}
+                            cy={node.y}
+                            r="3.2"
+                            fill="#1D9878"
+                            className={isInView ? "map-card-pop" : "opacity-0"}
+                            style={{
+                              animationDelay: `${badgeDelay}s`,
+                              transformOrigin: `${node.x}px ${node.y}px`
+                            }}
+                          />
+                        </g>
+                      );
+                    })}
                   </g>
                 </svg>
 
                 {/* HTML Labels Overlay */}
                 <div className="absolute inset-0 pointer-events-none">
-                  {/* Destination Node Labels: Delicate, compact rounded pill capsules */}
-                  {NETWORK_NODES.map((node) => (
-                    <div
-                      key={node.id}
-                      className="absolute bg-white/95 backdrop-blur-[2px] text-[#253D62] font-semibold text-[clamp(6.5px,0.92cqw,9px)] px-[0.6cqw] py-[0.18cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.12)] whitespace-nowrap border border-slate-200/80 leading-normal"
-                      style={{
-                        left: node.left,
-                        top: node.top,
-                        transform: node.transform
-                      }}
-                    >
-                      {t.network.destinations[node.id] || node.name}
-                    </div>
-                  ))}
+                  {/* Destination Location Cards: Appear one by one before the line joins them */}
+                  {NETWORK_NODES.map((node, i) => {
+                    const badgeDelay = 0.25 + i * 0.50;
+                    return (
+                      <div
+                        key={node.id}
+                        className="absolute"
+                        style={{
+                          left: node.left,
+                          top: node.top,
+                          transform: node.transform
+                        }}
+                      >
+                        <div
+                          className={`bg-white/95 backdrop-blur-[2px] text-[#253D62] font-semibold text-[clamp(6.5px,0.92cqw,9px)] px-[0.6cqw] py-[0.18cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.12)] whitespace-nowrap border border-slate-200/80 leading-normal ${
+                            isInView ? "map-card-pop" : "opacity-0"
+                          }`}
+                          style={{
+                            animationDelay: `${badgeDelay}s`
+                          }}
+                        >
+                          {t.network.destinations[node.id] || node.name}
+                        </div>
+                      </div>
+                    );
+                  })}
 
                   {/* Morocco Central Hub Label: SALI Commodities */}
                   <div
-                    className="absolute bg-[#1C2C46] text-white font-medium text-[clamp(5px,0.72cqw,8px)] px-[0.45cqw] py-[0.1cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.15)] whitespace-nowrap leading-tight -translate-x-1/2 -translate-y-1/2"
+                    className="absolute -translate-x-1/2 -translate-y-1/2"
                     style={{
                       left: HUB_NODE.left,
                       top: HUB_NODE.top
                     }}
                   >
-                    {HUB_NODE.name}
+                    <div
+                      className={`bg-[#1C2C46] text-white font-medium text-[clamp(5px,0.72cqw,8px)] px-[0.45cqw] py-[0.1cqw] rounded-full shadow-[0_2px_6px_rgba(20,30,50,0.15)] whitespace-nowrap leading-tight ${
+                        isInView ? "map-card-pop" : "opacity-0"
+                      }`}
+                      style={{
+                        animationDelay: "0.1s"
+                      }}
+                    >
+                      {HUB_NODE.name}
+                    </div>
                   </div>
                 </div>
 
