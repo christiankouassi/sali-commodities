@@ -1,13 +1,13 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 interface HeroProps {
-  onOpenVideo?: () => void;
+  onOpenVideo: () => void;
   onDiscover: () => void;
 }
 
-export default function Hero({ onDiscover }: HeroProps) {
+export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
   const { t } = useLanguage();
   const { hero } = t;
 
@@ -50,14 +50,27 @@ export default function Hero({ onDiscover }: HeroProps) {
           </p>
 
           {/* Call to Actions */}
-          <div className="ae ae-up flex flex-wrap items-center gap-4 sm:gap-5" data-d="2.5">
+          <div className="ae ae-up flex flex-wrap items-center gap-3 sm:gap-4" data-d="2.5">
             <button
               onClick={onDiscover}
-              className="inline-flex items-center gap-2.5 bg-[#1d9878] hover:bg-[#188065] text-white text-xs sm:text-sm font-semibold px-6 py-3 sm:px-7 sm:py-3.5 rounded-full transition-all duration-300 shadow-lg shadow-emerald-900/30 hover:shadow-xl hover:translate-x-0.5 group"
+              className="inline-flex items-center gap-2 bg-[#1d9878] hover:bg-[#188065] text-white text-xs sm:text-sm font-semibold px-5 py-3 sm:px-7 sm:py-3.5 rounded-full transition-all duration-300 shadow-lg shadow-emerald-900/30 hover:shadow-xl hover:translate-x-0.5 group"
             >
               <span>{hero.ctaPrimary}</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
+
+            {/* Watch Video Button */}
+            {hero.ctaSecondary && (
+              <button
+                onClick={onOpenVideo}
+                className="inline-flex items-center gap-2.5 bg-white/15 hover:bg-white/25 text-white text-xs sm:text-sm font-semibold px-5 py-3 sm:px-6 sm:py-3.5 rounded-full backdrop-blur-md border border-white/25 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              >
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white text-[#1c2c46] flex items-center justify-center transition-transform group-hover:scale-110">
+                  <Play className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-[#1c2c46] translate-x-0.5" />
+                </div>
+                <span>{hero.ctaSecondary}</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -148,7 +148,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
       titleHighlight: "markets",
       subtitle: "Connecting exceptional agricultural producers with international market opportunities.",
       ctaPrimary: "Explore our activity",
-      ctaSecondary: "",
+      ctaSecondary: "Watch video",
       corridors: ["Morocco", "Africa", "Global"]
     },
     featureBoxes: [
@@ -191,7 +191,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
       items: [
         {
           id: "agrumes",
-          name: "Citrus Fruits",
+          name: "Citrus",
           category: "Fresh Fruits - Morocco",
           desc: "Berkane clementines, Navel oranges and fragrant Maroc Late, world-renowned for their rich sweet flavor and incomparable freshness.",
           image: "/images/agrumes.png",
@@ -205,7 +205,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "tomates",
-          name: "Round & Cherry Tomatoes",
+          name: "Tomatoes",
           category: "Market Gardening - Morocco",
           desc: "Tomatoes cultivated in advanced modern greenhouses, rigorously selected and sized according to strict international specifications.",
           image: "/images/tomates.png",
@@ -219,7 +219,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "huile-olive",
-          name: "Extra Virgin Olive Oil",
+          name: "Olive Oil",
           category: "Gourmet Terroir - Morocco",
           desc: "Extra virgin olive oil cold-extracted from Moroccan Picholine olives, offering minimal acidity and superior culinary richness.",
           image: "/images/huile-olive.png",
@@ -233,7 +233,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "myrtilles",
-          name: "Fresh Blueberries",
+          name: "Blueberries",
           category: "Berries - Morocco",
           desc: "Crunchy premium blueberries hand-picked with care, packed immediately to preserve their natural bloom and optimal firmness.",
           image: "/images/01_myrtilles.jpg",
@@ -261,7 +261,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "poivrons",
-          name: "Peppers (Red, Yellow, Green)",
+          name: "Peppers",
           category: "Market Gardening - Morocco",
           desc: "Vibrant, thick-fleshed peppers from certified partner farms ensuring total traceability and uniform sizing for export.",
           image: "/images/03_poivrons_trio.jpg",
@@ -331,7 +331,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "cacao",
-          name: "Cocoa Derivatives",
+          name: "Cocoa",
           category: "Raw Commodities - International",
           desc: "Premium well-fermented dried cocoa beans, natural butter, liquor, and powder sourced from ethical partner cooperatives.",
           image: "/images/07_cacao.jpg",
@@ -345,7 +345,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "sardines",
-          name: "Canned Sardines",
+          name: "Sardines",
           category: "Seafood & Canning - Morocco",
           desc: "Fresh wild Atlantic sardines traditionally prepared in pure olive oil and aromatics, celebrated globally for exquisite flavor.",
           image: "/images/08_sardines_en_conserve.jpg",
@@ -598,7 +598,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
       titleHighlight: "du monde",
       subtitle: "Nous connectons des producteurs d'exception aux opportunités internationales.",
       ctaPrimary: "Découvrir notre activité",
-      ctaSecondary: "",
+      ctaSecondary: "Voir la vidéo",
       corridors: ["Maroc", "Afrique", "Monde"]
     },
     featureBoxes: [
@@ -655,7 +655,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "tomates",
-          name: "Tomates rondes & cerises",
+          name: "Tomates",
           category: "Maraîchage - Maroc",
           desc: "Tomates cultivées sous serres modernes, rigoureusement sélectionnées et calibrées selon les exigences européennes les plus strictes.",
           image: "/images/tomates.png",
@@ -669,7 +669,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "huile-olive",
-          name: "Huile d'olive extra-vierge",
+          name: "Huile d'olive",
           category: "Terroir & Épicerie - Maroc",
           desc: "Huile vierge extra issue d'oliviers picholine marocaine, extraite à froid avec une acidité minimale pour une qualité gastronomique supérieure.",
           image: "/images/huile-olive.png",
@@ -683,7 +683,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "myrtilles",
-          name: "Myrtilles fraîches",
+          name: "Myrtilles",
           category: "Fruits rouges - Maroc",
           desc: "Myrtilles croquantes récoltées à la main avec passion, conditionnées immédiatement pour préserver leur pruine naturelle et leur fermeté.",
           image: "/images/01_myrtilles.jpg",
@@ -711,7 +711,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "poivrons",
-          name: "Poivrons (Rouge, Jaune, Vert)",
+          name: "Poivrons",
           category: "Maraîchage - Maroc",
           desc: "Poivrons charnus et colorés, issus d'exploitations certifiées garantissant une traçabilité totale et une régularité de calibre parfaite.",
           image: "/images/03_poivrons_trio.jpg",
@@ -781,7 +781,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "cacao",
-          name: "Dérivés de Cacao",
+          name: "Cacao",
           category: "Matières premières - International",
           desc: "Fèves de cacao fermentées de premier choix, beurre, masse et poudre de cacao, approvisionnés auprès de coopératives équitables partenaires.",
           image: "/images/07_cacao.jpg",
@@ -1048,7 +1048,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
       titleHighlight: "del mundo",
       subtitle: "Conectamos a productores excepcionales con las oportunidades comerciales internacionales.",
       ctaPrimary: "Descubrir nuestra actividad",
-      ctaSecondary: "",
+      ctaSecondary: "Ver el vídeo",
       corridors: ["Marruecos", "África", "Mundo"]
     },
     featureBoxes: [
@@ -1105,7 +1105,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "tomates",
-          name: "Tomates redondos y cherry",
+          name: "Tomates",
           category: "Hortalizas - Marruecos",
           desc: "Tomates cultivados en invernaderos modernos, seleccionados y calibrados según las especificaciones más exigentes de la distribución internacional.",
           image: "/images/tomates.png",
@@ -1119,7 +1119,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "huile-olive",
-          name: "Aceite de oliva virgen extra",
+          name: "Aceite de oliva",
           category: "Gourmet y Terruño - Marruecos",
           desc: "Aceite de oliva virgen extra de olivos Picholine marroquíes, extraído en frío con acidez mínima para una calidad gastronómica superior.",
           image: "/images/huile-olive.png",
@@ -1133,7 +1133,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "myrtilles",
-          name: "Arándanos frescos",
+          name: "Arándanos",
           category: "Frutos rojos - Marruecos",
           desc: "Arándanos crujientes recolectados a mano con esmero, envasados de inmediato para preservar su pruina natural y firmeza óptima.",
           image: "/images/01_myrtilles.jpg",
@@ -1161,7 +1161,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "poivrons",
-          name: "Pimientos (Rojo, Amarillo, Verde)",
+          name: "Pimientos",
           category: "Hortalizas - Marruecos",
           desc: "Pimientos carnosos y coloridos de explotaciones agrícolas certificadas, garantizando trazabilidad total y uniformidad de calibre.",
           image: "/images/03_poivrons_trio.jpg",
@@ -1217,7 +1217,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "fruits-secs",
-          name: "Frutos secos y Nueces",
+          name: "Frutos secos",
           category: "Snacking saludable - África Occidental",
           desc: "Selección selecta de anacardos crudos y tostados, almendras y frutos secos tropicales, cumpliendo rigurosos requisitos de import-export.",
           image: "/images/06_fruits_secs.jpg",
@@ -1231,7 +1231,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "cacao",
-          name: "Derivados del Cacao",
+          name: "Cacao",
           category: "Materias primas - Internacional",
           desc: "Granos de cacao fermentados de primer grado, manteca pura, pasta y cacao en polvo procedentes de cooperativas asociadas sostenibles.",
           image: "/images/07_cacao.jpg",
