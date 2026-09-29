@@ -154,8 +154,7 @@ export default function ProductCatalog({ onSelectProduct, onViewAll }: ProductCa
           {displayItems.map((product, index) => (
             <div
               key={`${product.id}-${index}`}
-              onClick={() => onSelectProduct(product)}
-              className="group relative flex-shrink-0 w-[155px] sm:w-[210px] md:w-[225px] lg:w-[230px] xl:w-[235px] h-[260px] sm:h-[340px] lg:h-[360px] rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 border border-slate-100 select-none"
+              className="group relative flex-shrink-0 w-[155px] sm:w-[210px] md:w-[225px] lg:w-[230px] xl:w-[235px] h-[210px] sm:h-[270px] lg:h-[290px] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 border border-slate-100 select-none"
             >
               {/* Product Image */}
               <img
@@ -166,27 +165,16 @@ export default function ProductCatalog({ onSelectProduct, onViewAll }: ProductCa
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-              {/* Product Info Overlaid at Bottom */}
-              <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 lg:p-5 flex flex-col justify-end">
+              {/* Product Info Overlaid at Bottom: Origin Tag + Product Name Only */}
+              <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-4 lg:p-5 flex flex-col justify-end">
                 <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#3ecfa6] block mb-1">
                   {getOriginLabel(product.origin)}
                 </span>
-                <h3 className="text-xs sm:text-sm lg:text-base font-bold text-white leading-snug mb-1 sm:mb-2 line-clamp-2 min-h-[30px] sm:min-h-[40px]">
+                <h3 className="text-xs sm:text-sm lg:text-base font-bold text-white leading-snug">
                   {product.name}
                 </h3>
-                <p className="hidden sm:block text-[11px] text-slate-300 line-clamp-2 mb-3 leading-relaxed">
-                  {product.desc}
-                </p>
-
-                {/* Direct Quotation CTA Button */}
-                <div className="flex items-center justify-between pt-2 border-t border-white/20 text-[10px] sm:text-xs font-semibold text-white group-hover:text-[#3ecfa6] transition-colors">
-                  <span className="truncate pr-1">{quoteText}</span>
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white group-hover:bg-[#1d9878] transition-all flex-shrink-0">
-                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </div>
-                </div>
               </div>
             </div>
           ))}
