@@ -16,9 +16,9 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
       {/* Background Hero Image with Optimized Mobile Focal Point */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero.jpg"
+          src="/images/hero.png"
           alt="SALI Commodities agricultural partner"
-          className="w-full h-[calc(100%+160px)] sm:h-full object-cover object-[75%_0%] sm:object-center lg:object-right-top filter brightness-[1.03] -translate-y-[160px] sm:translate-y-0 transition-transform duration-300"
+          className="w-full h-[calc(100%+240px)] sm:h-full object-cover object-[75%_10%] sm:object-center lg:object-right-top filter brightness-[1.05] -translate-y-[220px] sm:translate-y-0 transition-transform duration-300"
         />
         {/* Subtle Dark Gradient Overlay for Maximum Readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/70 via-[#0c1828]/35 to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
