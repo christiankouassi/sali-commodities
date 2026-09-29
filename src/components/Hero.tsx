@@ -18,7 +18,7 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
         <img
           src="/images/hero.png"
           alt="SALI Commodities agricultural partner"
-          className="w-full h-full object-cover object-[80%_0%] sm:object-center lg:object-right-top filter brightness-[1.05]"
+          className="w-full h-[calc(100%+450px)] sm:h-full object-cover object-[75%_10%] sm:object-center lg:object-right-top filter brightness-[1.05] -translate-y-[410px] sm:translate-y-0 transition-transform duration-300"
         />
         {/* Subtle Dark Gradient Overlay for Maximum Readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/80 via-[#0c1828]/45 to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
