@@ -20,16 +20,16 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
           <img
             src="/images/hero-mobile.jpg"
             alt="SALI Commodities agricultural partner"
-            className="w-full h-full object-cover object-top -translate-y-16 sm:translate-y-0 filter brightness-[1.08]"
+            className="w-full h-[520px] sm:h-full object-cover object-top -translate-y-28 sm:translate-y-0 filter brightness-[1.08]"
           />
         </picture>
         {/* Dark Gradient Overlay - Seamless transition from image bottom into solid dark blue background */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/90 via-50% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/90 via-40% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
       </div>
 
       {/* Main Content Area - Resting cleanly on dark blue background below farmer logo */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto pt-64 sm:pt-12 lg:py-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto pt-52 sm:pt-12 lg:py-16">
         <div className="max-w-xs sm:max-w-xl lg:max-w-2xl">
           {/* Category Tag */}
           <div className="ae ae-up inline-flex items-center gap-2 mb-3 sm:mb-4" data-d="1">
