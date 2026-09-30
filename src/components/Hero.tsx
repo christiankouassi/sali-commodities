@@ -12,21 +12,24 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
   const { hero } = t;
 
   return (
-    <section id="accueil" className="relative min-h-[95vh] lg:min-h-screen flex flex-col justify-between pt-28 sm:pt-36 lg:pt-32 pb-10 overflow-hidden">
-      {/* Background Hero Image with Optimized Mobile Focal Point */}
+    <section id="accueil" className="relative min-h-[980px] sm:min-h-[95vh] lg:min-h-screen flex flex-col justify-end sm:justify-between pt-20 sm:pt-36 lg:pt-32 pb-8 overflow-hidden">
+      {/* Background Hero Image with Dual-Image Strategy (Mobile 9:16 vertical / Desktop 16:9 landscape) */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/images/hero.png"
-          alt="SALI Commodities agricultural partner"
-          className="w-full h-[calc(100%+450px)] sm:h-full object-cover object-[75%_10%] sm:object-center lg:object-right-top filter brightness-[1.05] -translate-y-[410px] sm:translate-y-0 transition-transform duration-300"
-        />
-        {/* Subtle Dark Gradient Overlay for Maximum Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/80 via-[#0c1828]/45 to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18]/95 via-[#070e18]/65 via-50% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
+        <picture>
+          <source media="(min-width: 640px)" srcSet="/images/hero.png" />
+          <img
+            src="/images/hero-mobile.jpg"
+            alt="SALI Commodities agricultural partner"
+            className="w-full h-full object-cover object-top filter brightness-[1.05]"
+          />
+        </picture>
+        {/* Subtle Dark Gradient Overlay - Light on top, dark on text area */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/20 via-transparent to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/95 via-60% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
       </div>
 
-      {/* Main Content Area - Anchored below farmer logo on mobile */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-auto mb-4 sm:my-auto pt-36 sm:pt-12 lg:py-16">
+      {/* Main Content Area - Anchored cleanly in bottom half on mobile */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-6 sm:my-auto pt-0 sm:pt-12 lg:py-16">
         <div className="max-w-xs sm:max-w-xl lg:max-w-2xl">
           {/* Category Tag */}
           <div className="ae ae-up inline-flex items-center gap-2 mb-3 sm:mb-4" data-d="1">
