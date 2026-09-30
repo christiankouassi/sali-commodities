@@ -12,7 +12,7 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
   const { hero } = t;
 
   return (
-    <section id="accueil" className="relative min-h-[980px] sm:min-h-[95vh] lg:min-h-screen flex flex-col justify-end sm:justify-between pt-20 sm:pt-36 lg:pt-32 pb-8 overflow-hidden">
+    <section id="accueil" className="relative min-h-[100dvh] sm:min-h-[95vh] lg:min-h-screen flex flex-col justify-between pt-20 sm:pt-36 lg:pt-32 pb-4 sm:pb-8 overflow-hidden">
       {/* Background Hero Image with Dual-Image Strategy (Mobile 9:16 vertical / Desktop 16:9 landscape) */}
       <div className="absolute inset-0 z-0">
         <picture>
@@ -20,16 +20,16 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
           <img
             src="/images/hero-mobile.jpg"
             alt="SALI Commodities agricultural partner"
-            className="w-full h-full object-cover object-top filter brightness-[1.05]"
+            className="w-full h-full object-cover object-top filter brightness-[1.08]"
           />
         </picture>
-        {/* Subtle Dark Gradient Overlay - Light on top, dark on text area */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/20 via-transparent to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/95 via-60% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
+        {/* Subtle Gradient Overlay - Very light on top, dark behind text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/80 via-45% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
       </div>
 
-      {/* Main Content Area - Anchored cleanly in bottom half on mobile */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-6 sm:my-auto pt-0 sm:pt-12 lg:py-16">
+      {/* Main Content Area - Positioned cleanly below vest logo so Watch Video is 100% visible */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto pt-80 sm:pt-12 lg:py-16">
         <div className="max-w-xs sm:max-w-xl lg:max-w-2xl">
           {/* Category Tag */}
           <div className="ae ae-up inline-flex items-center gap-2 mb-3 sm:mb-4" data-d="1">
