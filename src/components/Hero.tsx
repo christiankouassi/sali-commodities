@@ -18,11 +18,11 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
         <img
           src="/images/hero.png"
           alt="SALI Commodities agricultural partner"
-          className="w-full h-full object-cover object-[80%_top] sm:object-center lg:object-right-top filter brightness-[1.05]"
+          className="w-full h-full object-cover object-[72%_top] sm:object-[72%_center] lg:object-right-top filter brightness-[1.05]"
         />
-        {/* Subtle Overlay Gradient for Maximum Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/85 via-[#0c1828]/50 to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/85 via-50% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
+        {/* Targeted Gradient Overlay - Dark behind text at bottom-left, 0% wash on top-right farmer & logo */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#070e18]/90 via-[#070e18]/30 via-35% to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/70 via-35% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
       </div>
 
       {/* Main Content Area - Anchored cleanly at bottom of screen below vest logo */}
