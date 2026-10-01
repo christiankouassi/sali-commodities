@@ -25,8 +25,8 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/85 via-50% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
       </div>
 
-      {/* Main Content Area - Responsive typography with generous whitespace below vest logo */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto pt-44 sm:pt-12 lg:py-16">
+      {/* Main Content Area - Anchored cleanly at bottom of screen below vest logo */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-auto mb-2 sm:my-auto pt-0 sm:pt-12 lg:py-16">
         <div className="max-w-xs sm:max-w-xl lg:max-w-2xl">
           {/* Category Tag */}
           <div className="ae ae-up inline-flex items-center gap-2 mb-2 sm:mb-4" data-d="1">
