@@ -13,23 +13,20 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
 
   return (
     <section id="accueil" className="relative min-h-[100dvh] sm:min-h-[95vh] lg:min-h-screen flex flex-col justify-between pt-20 sm:pt-36 lg:pt-32 pb-4 sm:pb-8 overflow-hidden bg-[#070e18]">
-      {/* Background Hero Image with Dual-Image Strategy (Mobile 9:16 vertical / Desktop 16:9 landscape) */}
+      {/* Background Hero Image - Option B (Natural 16:9 widescreen image with dark blue transition below) */}
       <div className="absolute inset-0 z-0 bg-[#070e18]">
-        <picture>
-          <source media="(min-width: 640px)" srcSet="/images/hero.png" />
-          <img
-            src="/images/hero-mobile.jpg"
-            alt="SALI Commodities agricultural partner"
-            className="w-full h-[520px] sm:h-full object-cover object-top -translate-y-28 sm:translate-y-0 filter brightness-[1.08]"
-          />
-        </picture>
-        {/* Dark Gradient Overlay - Seamless transition from image bottom into solid dark blue background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/90 via-40% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
+        <img
+          src="/images/hero.png"
+          alt="SALI Commodities agricultural partner"
+          className="w-full h-[360px] sm:h-full object-cover object-[80%_center] sm:object-center lg:object-right-top filter brightness-[1.05]"
+        />
+        {/* Dark Gradient Overlay - Left dark overlay on desktop, seamless bottom transition into solid dark blue on mobile */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070e18]/80 via-[#0c1828]/45 to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/90 via-45% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
       </div>
 
-      {/* Main Content Area - Resting cleanly on dark blue background below farmer logo */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto pt-52 sm:pt-12 lg:py-16">
+      {/* Main Content Area - Positioned cleanly on dark blue background below banner on mobile */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto pt-44 sm:pt-12 lg:py-16">
         <div className="max-w-xs sm:max-w-xl lg:max-w-2xl">
           {/* Category Tag */}
           <div className="ae ae-up inline-flex items-center gap-2 mb-3 sm:mb-4" data-d="1">
