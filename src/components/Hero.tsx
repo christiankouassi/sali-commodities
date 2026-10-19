@@ -20,8 +20,8 @@ export default function Hero({ onOpenVideo, onDiscover }: HeroProps) {
           alt="SALI Commodities agricultural partner"
           className="w-full h-full object-cover object-[80%_top] sm:object-[74%_center] lg:object-right-top filter brightness-[1.05]"
         />
-        {/* Targeted Gradient Overlay - Dark behind text at bottom-left, 0% wash on top-right farmer & logo */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#070e18]/90 via-[#070e18]/30 via-35% to-transparent sm:from-[#070e18]/90 sm:via-[#0c1828]/65 lg:w-3/4" />
+        {/* Targeted Gradient Overlay - Dark behind text at bottom-left, seamless fade to transparent without cut-off */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#070e18]/90 via-[#070e18]/30 via-35% to-transparent sm:bg-gradient-to-r sm:from-[#070e18]/90 sm:via-[#0c1828]/50 sm:to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#070e18] via-[#070e18]/70 via-35% to-transparent sm:from-[#070e18]/90 sm:via-[#070e18]/30 sm:to-black/20" />
       </div>
 
