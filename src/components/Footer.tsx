@@ -97,7 +97,7 @@ export default function Footer() {
               <a
                 href={brand.linkedin}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-slate-800/80 hover:bg-[#1d9878] text-white flex items-center justify-center transition-all duration-300"
                 aria-label="LinkedIn"
               >

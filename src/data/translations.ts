@@ -131,7 +131,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
       phone: "+212 6 61 37 39 37",
       email: "contact@sali-commodities.com",
       address: "Casablanca, Morocco",
-      linkedin: "https://www.linkedin.com"
+      linkedin: "https://www.linkedin.com/company/sali-commodities/"
     },
     nav: [
       { label: "Home", href: "#accueil" },
@@ -356,6 +356,51 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
             certifications: "Friend of the Sea, IFS Food, FDA Registered",
             seasonality: "Year-round availability"
           }
+        },
+        {
+          id: "cafe",
+          name: "Coffee",
+          category: "Agri-Commodities - International",
+          originLabel: "International origin",
+          desc: "Carefully selected green and roasted coffee beans from prime high-altitude terroirs, offering rich aroma, balanced acidity, and rigorous quality grading.",
+          image: "/images/cafe.jpg",
+          origin: "monde",
+          details: {
+            varieties: "Arabica, Robusta, Single-origin specialty micro-lots",
+            packaging: "Jute bags (60kg), GrainPro hermetic liners, vacuum packs (25kg)",
+            certifications: "Rainforest Alliance, Fairtrade, Organic, UTZ",
+            seasonality: "Year-round supply according to origin harvest calendar"
+          }
+        },
+        {
+          id: "banane",
+          name: "Banana",
+          category: "Fresh Tropical Fruits - Africa & Latin America",
+          originLabel: "Africa and Latin America",
+          desc: "Premium Cavendish bananas harvested at exact physiological maturity, packed under controlled atmosphere to ensure impeccable firmness and extended shelf-life.",
+          image: "/images/banane.jpg",
+          origin: "afrique",
+          details: {
+            varieties: "Cavendish Grande Naine, Williams",
+            packaging: "Telescopic cardboard cartons (13.5kg, 18.14kg / 40lbs), cluster flow-pack",
+            certifications: "GlobalGAP, GRASP, Rainforest Alliance, Fair Trade",
+            seasonality: "Year-round continuous harvesting and supply"
+          }
+        },
+        {
+          id: "piment-kapia",
+          name: "Kapia Pepper",
+          category: "Market Gardening - Morocco",
+          originLabel: "Morocco",
+          desc: "Elongated sweet Kapia peppers from fertile Moroccan terroirs, featuring intense ruby-red color, thick crunchy flesh, and high Brix sweetness ideal for retail and processing.",
+          image: "/images/piment_kapia.jpg",
+          origin: "maroc",
+          details: {
+            varieties: "Red Sweet Kapia, Pointed Pepper",
+            packaging: "Cardboard cartons (4kg, 5kg), reusable IFCO crates, flow-pack trays",
+            certifications: "GlobalGAP, GRASP, IFS Food, BRCGS",
+            seasonality: "October to June"
+          }
         }
       ]
     },
@@ -404,7 +449,11 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         westAfrica: "West Africa",
         egypt: "Egypt",
         southAfrica: "South Africa",
-        usa: "United States"
+        usa: "United States",
+        turkey: "Turkey",
+        china: "China",
+        ecuador: "Ecuador",
+        peru: "Peru"
       }
     },
     servicesHeading: {
@@ -581,7 +630,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
       phone: "+212 6 61 37 39 37",
       email: "contact@sali-commodities.com",
       address: "Casablanca, Maroc",
-      linkedin: "https://www.linkedin.com"
+      linkedin: "https://www.linkedin.com/company/sali-commodities/"
     },
     nav: [
       { label: "Accueil", href: "#accueil" },
@@ -806,6 +855,51 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
             certifications: "Friend of the Sea, IFS Food, FDA Registered",
             seasonality: "Toute l'année"
           }
+        },
+        {
+          id: "cafe",
+          name: "Café",
+          category: "Matières premières - International",
+          originLabel: "Origine internationale",
+          desc: "Sélection rigoureuse de fèves de café vert et torréfié issues de terroirs d'altitude d'exception, offrant richesse aromatique, profil équilibré et calibrage strict.",
+          image: "/images/cafe.jpg",
+          origin: "monde",
+          details: {
+            varieties: "Arabica, Robusta, micro-lots de spécialité",
+            packaging: "Sacs de jute (60kg), doublures hermétiques GrainPro, sous vide (25kg)",
+            certifications: "Rainforest Alliance, Fairtrade, Bio, UTZ",
+            seasonality: "Disponible toute l'année selon les calendriers de récolte des origines"
+          }
+        },
+        {
+          id: "banane",
+          name: "Banane",
+          category: "Fruits tropicaux - Afrique et Amérique latine",
+          originLabel: "Afrique et Amérique latine",
+          desc: "Bananes Cavendish de premier choix récoltées à maturité physiologique optimale, conditionnées sous atmosphère contrôlée pour une tenue irréprochable au transport maritime.",
+          image: "/images/banane.jpg",
+          origin: "afrique",
+          details: {
+            varieties: "Cavendish Grande Naine, Williams",
+            packaging: "Cartons télescopiques (13,5kg, 18,14kg / 40lbs), bouquets sous sachet fraîcheur",
+            certifications: "GlobalGAP, GRASP, Rainforest Alliance, Fair Trade",
+            seasonality: "Production et approvisionnement continus toute l'année"
+          }
+        },
+        {
+          id: "piment-kapia",
+          name: "Piment Kapia",
+          category: "Maraîchage - Maroc",
+          originLabel: "Maroc",
+          desc: "Piments doux allongés de variété Kapia cultivés sous abri au Maroc, réputés pour leur chair épaisse et croquante, leur couleur rouge carmin intense et leur teneur élevée en sucre naturel.",
+          image: "/images/piment_kapia.jpg",
+          origin: "maroc",
+          details: {
+            varieties: "Kapia rouge doux, piment pointu",
+            packaging: "Cartons (4kg, 5kg), bacs IFCO réutilisables, barquettes flow-pack",
+            certifications: "GlobalGAP, GRASP, IFS Food, BRCGS",
+            seasonality: "Octobre à Juin"
+          }
         }
       ]
     },
@@ -854,7 +948,11 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         westAfrica: "Afrique de l'Ouest",
         egypt: "Égypte",
         southAfrica: "Afrique du Sud",
-        usa: "États-Unis"
+        usa: "États-Unis",
+        turkey: "Turquie",
+        china: "Chine",
+        ecuador: "Équateur",
+        peru: "Pérou"
       }
     },
     servicesHeading: {
@@ -1031,7 +1129,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
       phone: "+212 6 61 37 39 37",
       email: "contact@sali-commodities.com",
       address: "Casablanca, Marruecos",
-      linkedin: "https://www.linkedin.com"
+      linkedin: "https://www.linkedin.com/company/sali-commodities/"
     },
     nav: [
       { label: "Inicio", href: "#accueil" },
@@ -1256,6 +1354,51 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
             certifications: "Friend of the Sea, IFS Food, FDA Registered",
             seasonality: "Todo el año"
           }
+        },
+        {
+          id: "cafe",
+          name: "Café",
+          category: "Materias primas - Internacional",
+          originLabel: "Origen internacional",
+          desc: "Selección rigurosa de granos de café verde y tostado procedentes de reconocidos terruños de altura, con un perfil aromático intenso y clasificación homogénea.",
+          image: "/images/cafe.jpg",
+          origin: "monde",
+          details: {
+            varieties: "Arábica, Robusta, micro-lotes de especialidad",
+            packaging: "Sacos de yute (60kg), bolsas herméticas GrainPro, envasado al vacío (25kg)",
+            certifications: "Rainforest Alliance, Fairtrade, Orgánico, UTZ",
+            seasonality: "Disponibilidad continua según el calendario de cosechas"
+          }
+        },
+        {
+          id: "banane",
+          name: "Banana",
+          category: "Frutas tropicales - África y América Latina",
+          originLabel: "África y América Latina",
+          desc: "Plátanos y bananas Cavendish de primera calidad cosechados en el punto óptimo de madurez fisiológica, acondicionados en atmósfera controlada para garantizar máxima frescura.",
+          image: "/images/banane.jpg",
+          origin: "afrique",
+          details: {
+            varieties: "Cavendish Grande Naine, Williams",
+            packaging: "Cajas de cartón telescópicas (13,5kg, 18,14kg / 40lbs), clusters en flow-pack",
+            certifications: "GlobalGAP, GRASP, Rainforest Alliance, Fair Trade",
+            seasonality: "Cosecha y suministro continuo durante todo el año"
+          }
+        },
+        {
+          id: "piment-kapia",
+          name: "Pimiento Kapia",
+          category: "Hortalizas y verduras - Marruecos",
+          originLabel: "Marruecos",
+          desc: "Pimientos dulces alargados tipo Kapia cultivados en Marruecos, caracterizados por su pulpa gruesa y carnosa, color rojo intenso y un dulzor natural muy apreciado en fresco e industria.",
+          image: "/images/piment_kapia.jpg",
+          origin: "maroc",
+          details: {
+            varieties: "Kapia rojo dulce, pimiento cónico",
+            packaging: "Cajas de cartón (4kg, 5kg), cajas reutilizables IFCO, bandejas flow-pack",
+            certifications: "GlobalGAP, GRASP, IFS Food, BRCGS",
+            seasonality: "Octubre a Junio"
+          }
         }
       ]
     },
@@ -1304,7 +1447,11 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         westAfrica: "África Occidental",
         egypt: "Egipto",
         southAfrica: "Sudáfrica",
-        usa: "Estados Unidos"
+        usa: "Estados Unidos",
+        turkey: "Turquía",
+        china: "China",
+        ecuador: "Ecuador",
+        peru: "Perú"
       }
     },
     servicesHeading: {

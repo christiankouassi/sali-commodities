@@ -154,7 +154,8 @@ export default function ProductCatalog({ onSelectProduct, onViewAll }: ProductCa
           {displayItems.map((product, index) => (
             <div
               key={`${product.id}-${index}`}
-              className="group relative flex-shrink-0 w-[155px] sm:w-[210px] md:w-[225px] lg:w-[230px] xl:w-[235px] h-[210px] sm:h-[270px] lg:h-[290px] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 border border-slate-100 select-none"
+              onClick={() => onSelectProduct(product)}
+              className="group relative flex-shrink-0 w-[155px] sm:w-[210px] md:w-[225px] lg:w-[230px] xl:w-[235px] h-[210px] sm:h-[270px] lg:h-[290px] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 border border-slate-100 select-none cursor-pointer"
             >
               {/* Product Image */}
               <img
@@ -170,7 +171,7 @@ export default function ProductCatalog({ onSelectProduct, onViewAll }: ProductCa
               {/* Product Info Overlaid at Bottom: Origin Tag + Product Name Only */}
               <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-4 lg:p-5 flex flex-col justify-end">
                 <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#3ecfa6] block mb-1">
-                  {getOriginLabel(product.origin)}
+                  {product.originLabel || getOriginLabel(product.origin)}
                 </span>
                 <h3 className="text-xs sm:text-sm lg:text-base font-bold text-white leading-snug">
                   {product.name}

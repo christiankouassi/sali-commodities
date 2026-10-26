@@ -44,6 +44,26 @@ export default function NetworkModal({ isOpen, onClose, onContact }: NetworkModa
       name: lang === 'EN' ? "United States" : lang === 'ES' ? "Estados Unidos" : "États-Unis",
       role: lang === 'EN' ? "Major North American retail and gourmet foodservice accounts" : lang === 'ES' ? "Grandes cuentas de distribución gourmet y supermercados en Norteamérica" : "Centrales d'achat et distributeurs spécialisés nord-américains",
       flows: lang === 'EN' ? "Extra virgin olive oil, IQF fruits, and packaged specialties" : lang === 'ES' ? "Aceite de oliva virgen extra, frutas IQF y conservas premium" : "Huile d'olive extra-vierge, fruits IQF et spécialités terroir"
+    },
+    {
+      name: lang === 'EN' ? "Egypt" : lang === 'ES' ? "Egipto" : "Égypte",
+      role: lang === 'EN' ? "Mediterranean trade hub & strategic gateway (North Africa)" : lang === 'ES' ? "Hub comercial mediterráneo y puerta estratégica (Norte de África)" : "Carrefour commercial méditerranéen & plateforme stratégique (Afrique du Nord)",
+      flows: lang === 'EN' ? "Citrus, fresh produce, and maritime logistics corridors" : lang === 'ES' ? "Cítricos, frutas frescas y corredores logísticos marítimos" : "Agrumes, oignons, primeurs et liaisons maritimes directes"
+    },
+    {
+      name: lang === 'EN' ? "Turkey" : lang === 'ES' ? "Turquía" : "Turquie",
+      role: lang === 'EN' ? "Eurasian commercial crossroad & strategic agricultural trading platform" : lang === 'ES' ? "Encrucijada comercial euroasiática y plataforma agrícola estratégica" : "Carrefour eurasiatique & plateforme stratégique d'échanges agricoles",
+      flows: lang === 'EN' ? "Dried fruits, pulses, nuts, and multimodal maritime connectivity" : lang === 'ES' ? "Frutos secos, legumbres y conectividad multimodal marítima" : "Fruits secs, légumineuses et liaisons maritimes régulières"
+    },
+    {
+      name: lang === 'EN' ? "China" : lang === 'ES' ? "China" : "Chine",
+      role: lang === 'EN' ? "Major Asian consumer market & long-term commercial partnership" : lang === 'ES' ? "Gran mercado asiático de consumo y alianza comercial estratégica" : "Grand marché asiatique & partenariats commerciaux à forte valeur ajoutée",
+      flows: lang === 'EN' ? "Citrus, specialty commodities, and premium export supply chains" : lang === 'ES' ? "Cítricos, materias primas de calidad y cadenas de suministro de exportación" : "Agrumes, produits d'exception et chaînes d'approvisionnement sécurisées"
+    },
+    {
+      name: lang === 'EN' ? "Ecuador & Peru" : lang === 'ES' ? "Ecuador y Perú" : "Équateur & Pérou",
+      role: lang === 'EN' ? "Premier Latin American agricultural basins & origin sourcing (Ecuador & Peru)" : lang === 'ES' ? "Principales cuencas agrícolas de América Latina y aprovisionamiento (Ecuador y Perú)" : "Bassins agricoles majeurs d'Amérique latine (Équateur & Pérou)",
+      flows: lang === 'EN' ? "Premium bananas, specialty high-altitude coffee, and ethical sourcing" : lang === 'ES' ? "Bananas premium, café de especialidad de altura y abastecimiento ético" : "Bananes d'exception, café de spécialité d'altitude et sourcing responsable"
     }
   ];
 

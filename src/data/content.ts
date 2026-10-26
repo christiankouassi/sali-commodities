@@ -5,6 +5,7 @@ export interface ProductItem {
   desc: string;
   image: string;
   origin: 'maroc' | 'afrique' | 'monde';
+  originLabel?: string;
   details?: {
     varieties?: string;
     packaging?: string;
@@ -30,7 +31,7 @@ export const SITE_CONTENT = {
     phone: "+212 6 61 37 39 37",
     email: "contact@sali-commodities.com",
     address: "Casablanca, Maroc",
-    linkedin: "https://www.linkedin.com"
+    linkedin: "https://www.linkedin.com/company/sali-commodities/"
   },
   nav: [
     { label: "Accueil", href: "#accueil" },
@@ -184,6 +185,33 @@ export const SITE_CONTENT = {
         desc: "Sardines fraîches de l'Atlantique marocain préparées artisanalement à l'huile d'olive et aux aromates, réputées pour leur finesse gustative.",
         image: "/images/08_sardines_en_conserve.jpg",
         origin: "maroc"
+      },
+      {
+        id: "cafe",
+        name: "Café",
+        category: "Matières premières - International",
+        originLabel: "Origine internationale",
+        desc: "Sélection rigoureuse de fèves de café vert et torréfié issues de terroirs d'altitude d'exception, offrant richesse aromatique, profil équilibré et calibrage strict.",
+        image: "/images/cafe.jpg",
+        origin: "monde"
+      },
+      {
+        id: "banane",
+        name: "Banane",
+        category: "Fruits tropicaux - Afrique et Amérique latine",
+        originLabel: "Afrique et Amérique latine",
+        desc: "Bananes Cavendish de premier choix récoltées à maturité physiologique optimale, conditionnées sous atmosphère contrôlée pour une tenue irréprochable au transport maritime.",
+        image: "/images/banane.jpg",
+        origin: "afrique"
+      },
+      {
+        id: "piment-kapia",
+        name: "Piment Kapia",
+        category: "Maraîchage - Maroc",
+        originLabel: "Maroc",
+        desc: "Piments doux allongés de variété Kapia cultivés sous abri au Maroc, réputés pour leur chair épaisse et croquante, leur couleur rouge carmin intense et leur teneur élevée en sucre naturel.",
+        image: "/images/piment_kapia.jpg",
+        origin: "maroc"
       }
     ] as ProductItem[]
   },
@@ -249,6 +277,24 @@ export const SITE_CONTENT = {
         role: "Bassin de production méditerranéen & carrefour commercial stratégique",
         flows: "Agrumes, légumes primeurs et partenariats logistiques",
         coordinates: { x: 585, y: 198 }
+      },
+      {
+        name: "Turquie",
+        role: "Carrefour commercial eurasiatique & plateforme d'échanges agricoles",
+        flows: "Fruits secs, légumineuses et liaisons maritimes",
+        coordinates: { x: 560, y: 175 }
+      },
+      {
+        name: "Chine",
+        role: "Grand marché asiatique en expansion & partenaire commercial d'envergure",
+        flows: "Produits agricoles d'excellence et approvisionnements spécialisés",
+        coordinates: { x: 740, y: 190 }
+      },
+      {
+        name: "Équateur & Pérou",
+        role: "Bassins agricoles stratégiques d'Amérique latine",
+        flows: "Bananes d'exception, café de spécialité et fruits tropicaux",
+        coordinates: { x: 290, y: 285 }
       },
       {
         name: "Afrique du Sud",
