@@ -173,7 +173,16 @@ export default function ProductCatalog({ onSelectProduct, onViewAll }: ProductCa
                 <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#3ecfa6] block mb-1">
                   {product.originLabel || getOriginLabel(product.origin)}
                 </span>
-                <h3 className="text-xs sm:text-sm lg:text-base font-bold text-white leading-snug">
+                <h3
+                  className={`font-bold text-white leading-tight whitespace-nowrap overflow-hidden text-ellipsis ${
+                    product.name.length > 20
+                      ? 'text-[10px] sm:text-xs lg:text-[13px]'
+                      : product.name.length > 15
+                      ? 'text-[11px] sm:text-xs lg:text-[13.5px]'
+                      : 'text-xs sm:text-sm lg:text-base'
+                  }`}
+                  title={product.name}
+                >
                   {product.name}
                 </h3>
               </div>

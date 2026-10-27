@@ -191,7 +191,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
       items: [
         {
           id: "agrumes",
-          name: "Citrus",
+          name: "Citrus Fruits",
           category: "Fresh Fruits - Morocco",
           desc: "Berkane clementines, Navel oranges and fragrant Maroc Late, world-renowned for their rich sweet flavor and incomparable freshness.",
           image: "/images/agrumes.png",
@@ -345,7 +345,7 @@ export const TRANSLATIONS: Record<'EN' | 'FR' | 'ES', SiteContent> = {
         },
         {
           id: "sardines",
-          name: "Sardines",
+          name: "Canned Sardines",
           category: "Seafood & Canning - Morocco",
           desc: "Fresh wild Atlantic sardines traditionally prepared in pure olive oil and aromatics, celebrated globally for exquisite flavor.",
           image: "/images/08_sardines_en_conserve.jpg",

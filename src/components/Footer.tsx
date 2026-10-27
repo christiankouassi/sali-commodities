@@ -3,7 +3,11 @@ import { Phone, Mail, MapPin, Linkedin } from 'lucide-react';
 import Logo from './Logo';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function Footer() {
+interface FooterProps {
+  onOpenPrivacy?: () => void;
+}
+
+export default function Footer({ onOpenPrivacy }: FooterProps = {}) {
   const { lang, t } = useLanguage();
   const { brand, nav, footer } = t;
 
@@ -118,7 +122,16 @@ export default function Footer() {
               {footer.legalLink}
             </a>
             <span>|</span>
-            <a href="#" className="hover:text-slate-300 transition-colors">
+            <a
+              href="/privacy"
+              onClick={(e) => {
+                if (onOpenPrivacy) {
+                  e.preventDefault();
+                  onOpenPrivacy();
+                }
+              }}
+              className="hover:text-slate-300 transition-colors cursor-pointer"
+            >
               {footer.privacyLink}
             </a>
           </div>

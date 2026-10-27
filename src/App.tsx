@@ -15,14 +15,53 @@ import VideoModal from './components/VideoModal';
 import ProductModal from './components/ProductModal';
 import ContactModal from './components/ContactModal';
 import NetworkModal from './components/NetworkModal';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import { ProductItem } from './data/content';
 
 function MainApp() {
+  const [currentRoute, setCurrentRoute] = useState<'home' | 'privacy'>(() => {
+    if (typeof window !== 'undefined') {
+      const p = window.location.pathname.toLowerCase();
+      if (p.includes('privacy') || p.includes('confidentialite')) {
+        return 'privacy';
+      }
+    }
+    return 'home';
+  });
+
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isNetworkModalOpen, setIsNetworkModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
   const [prefillProduct, setPrefillProduct] = useState<string>('');
+
+  // Handle URL history navigation (back/forward)
+  useEffect(() => {
+    const handlePopState = () => {
+      const p = window.location.pathname.toLowerCase();
+      if (p.includes('privacy') || p.includes('confidentialite')) {
+        setCurrentRoute('privacy');
+      } else {
+        setCurrentRoute('home');
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateToPrivacy = () => {
+    setCurrentRoute('privacy');
+    const search = window.location.search;
+    window.history.pushState({}, '', `/privacy${search}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navigateToHome = () => {
+    setCurrentRoute('home');
+    const search = window.location.search;
+    window.history.pushState({}, '', `/${search}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleOpenContact = (productName?: string) => {
     if (productName) {
@@ -76,6 +115,10 @@ function MainApp() {
     };
   }, []);
 
+  if (currentRoute === 'privacy') {
+    return <PrivacyPolicy onBack={navigateToHome} />;
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-[#fcfcfd] text-[#1c2c46]">
       {/* 3-Second Official Splash Screen */}
@@ -128,7 +171,7 @@ function MainApp() {
       </main>
 
       {/* Official Institutional Footer with White Icon Logo */}
-      <Footer />
+      <Footer onOpenPrivacy={navigateToPrivacy} />
 
       {/* Modals */}
       <VideoModal

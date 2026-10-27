@@ -12,9 +12,16 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  // Default to 'EN' as requested by the patron
+  // Determine initial language: check URL query parameter (?lang=fr / ?lang=es / ?lang=en) first, then localStorage, then default to 'EN'
   const [lang, setLangState] = useState<Language>(() => {
     try {
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryLang = urlParams.get('lang')?.toUpperCase();
+        if (queryLang === 'EN' || queryLang === 'FR' || queryLang === 'ES') {
+          return queryLang as Language;
+        }
+      }
       const saved = localStorage.getItem('sali_lang') as Language;
       if (saved && (saved === 'EN' || saved === 'FR' || saved === 'ES')) {
         return saved;
@@ -29,10 +36,33 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLangState(newLang);
     try {
       localStorage.setItem('sali_lang', newLang);
+      if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', newLang.toLowerCase());
+        window.history.replaceState({}, '', url.toString());
+      }
     } catch (e) {
       // ignore
     }
   };
+
+  // Sync if URL search changes via browser navigation
+  useEffect(() => {
+    const handleUrlChange = () => {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryLang = urlParams.get('lang')?.toUpperCase();
+        if (queryLang === 'EN' || queryLang === 'FR' || queryLang === 'ES') {
+          setLangState(queryLang as Language);
+        }
+      } catch (e) {
+        // ignore
+      }
+    };
+
+    window.addEventListener('popstate', handleUrlChange);
+    return () => window.removeEventListener('popstate', handleUrlChange);
+  }, []);
 
   const t = getTranslations(lang);
 

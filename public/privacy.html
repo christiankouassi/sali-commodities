@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy & Data Protection | SALI Commodities</title>
+  <meta name="description" content="Official Privacy Policy and Personal Data Protection terms for SALI Commodities and LinkedIn Lead Generation forms, compliant with GDPR and Moroccan Law 09-08." />
+  <link rel="canonical" href="https://sali-commodities.com/privacy" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <style>
+    :root {
+      --primary: #1c2c46;
+      --accent: #1d9878;
+      --accent-light: #3ecfa6;
+      --bg: #fcfcfd;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --border: #e2e8f0;
+      --card-bg: #ffffff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    .lang-tabs {
+      display: flex;
+      gap: 6px;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .lang-tab-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+    .lang-tab-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #ecfdf5;
+      color: var(--accent);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 1.05rem;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    .updated {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 32px;
+    }
+    .intro-box {
+      background: linear-gradient(135deg, #ffffff, #f0fdf4);
+      border: 1px solid #bbf7d0;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+      color: #1e293b;
+    }
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .section-card h2 {
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-card h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border-radius: 50%;
+    }
+    .section-card p {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+    .bullet {
+      padding-left: 14px;
+      position: relative;
+    }
+    .contact-card {
+      background: var(--primary);
+      color: white;
+      border-radius: 20px;
+      padding: 32px;
+      margin-top: 40px;
+    }
+    .contact-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .contact-card p {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+    .contact-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+    }
+    .contact-item span {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .contact-item a, .contact-item strong {
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    .back-btn-container {
+      margin-top: 36px;
+      text-align: center;
+    }
+    .back-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+    }
+    .back-btn:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+    footer {
+      background: #070e1a;
+      color: #64748b;
+      padding: 30px 20px;
+      font-size: 0.75rem;
+      text-align: center;
+      border-top: 1px solid #1e293b;
+    }
+    .lang-block {
+      display: none;
+    }
+    .lang-block.active {
+      display: block;
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.6rem; }
+      .container { margin-top: 24px; }
+      .section-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="/" class="brand-link">
+        <span>SALI COMMODITIES</span>
+      </a>
+
+      <div class="lang-tabs">
+        <button class="lang-tab-btn active" onclick="switchLang('EN')">EN</button>
+        <button class="lang-tab-btn" onclick="switchLang('FR')">FR</button>
+        <button class="lang-tab-btn" onclick="switchLang('ES')">ES</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- ==================== ENGLISH ==================== -->
+    <div id="content-EN" class="lang-block active">
+      <span class="badge">Legal & Compliance</span>
+      <h1>Privacy Policy & Personal Data Protection</h1>
+      <p class="subtitle">Terms and conditions regarding the processing of personal data collected through the SALI Commodities website and LinkedIn Lead Generation forms.</p>
+      <div class="updated">Last updated: October 2026</div>
+
+      <div class="intro-box">
+        SALI COMMODITIES, a specialized subsidiary of SALI Capital Group, attaches the highest importance to respecting your privacy and protecting the personal data of its clients, prospective partners, and visitors. This Privacy Policy details the conditions under which we collect, process, store, and safeguard your information, in accordance with applicable data protection laws, including EU Regulation 2016/679 (GDPR), Moroccan Law No. 09-08, and LinkedIn Campaign Manager compliance requirements.
+      </div>
+
+      <div class="section-card">
+        <h2>1. Data Controller Identification</h2>
+        <p>The controller responsible for processing your personal data is SALI COMMODITIES, an import-export corporation specializing in international agri-food trade and agricultural commodities, affiliated with SALI Capital Group.</p>
+        <p class="bullet">• Headquarters: Casablanca, Kingdom of Morocco</p>
+        <p class="bullet">• Official Contact Email: contact@sali-commodities.com</p>
+        <p class="bullet">• Telephone: +212 6 61 37 39 37</p>
+        <p class="bullet">• Website: https://sali-commodities.com</p>
+      </div>
+
+      <div class="section-card">
+        <h2>2. Personal Data We Collect</h2>
+        <p>We collect and process only the data strictly necessary for our international B2B trade activities and commercial communications:</p>
+        <p class="bullet">• <strong>Data provided via LinkedIn Lead Generation Forms & Website Forms:</strong> Full name, business email address, professional telephone number, company or trading entity name, job title (Distributor, Importer, Broker), country of destination, product of interest, requested volumes, and message content.</p>
+        <p class="bullet">• <strong>Technical & Analytical Data:</strong> IP address, browser type, operating system, and referral source collected through standard server logs and analytical tracking tools (specifically the LinkedIn Insight Tag, Partner ID: 9944714).</p>
+      </div>
+
+      <div class="section-card">
+        <h2>3. Purposes of Processing</h2>
+        <p>Your personal data is collected and processed exclusively for the following lawful purposes:</p>
+        <p class="bullet">• Responding promptly to quotation requests, commercial inquiries, specifications, and supply requests for our agricultural commodities.</p>
+        <p class="bullet">• Establishing and executing B2B international supply contracts, logistics coordination, and export compliance.</p>
+        <p class="bullet">• Following up on prospective inquiries generated through our LinkedIn advertising campaigns and professional Lead Gen forms.</p>
+        <p class="bullet">• Sending relevant professional B2B updates regarding harvests, product availability, international trade exhibitions, and market updates.</p>
+        <p class="bullet">• Measuring campaign effectiveness and optimizing website user experience via LinkedIn Insight Tag.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>4. Legal Basis for Processing</h2>
+        <p>The processing of your data is based on:</p>
+        <p class="bullet">• <strong>Consent:</strong> Freely given when you submit your contact details through LinkedIn Lead Gen forms or our website contact form.</p>
+        <p class="bullet">• <strong>Pre-contractual & Contractual Measures:</strong> Necessary to issue quotations, negotiate terms, and fulfill international sales contracts.</p>
+        <p class="bullet">• <strong>Legitimate Interests:</strong> Conducting legitimate B2B commercial outreach, ensuring system security, and preventing fraudulent trade activities.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>5. Data Retention Periods</h2>
+        <p class="bullet">• Prospect & Lead Data (LinkedIn Lead Gen & website inquiries): Stored for a maximum period of 3 years following the last active contact from the prospect, after which data is purged or irreversibly anonymized.</p>
+        <p class="bullet">• Client & Contractual Data: Retained for the duration of the commercial relationship plus applicable statutory retention periods (tax, customs, accounting, and commercial law requirements, generally up to 10 years).</p>
+      </div>
+
+      <div class="section-card">
+        <h2>6. Strict Policy: No Data Sale or Commercial Rental</h2>
+        <p>SALI COMMODITIES enforces a strict non-disclosure policy: <strong>We never sell, rent, lease, or monetize your personal data to any third party under any circumstances.</strong></p>
+        <p>Data is accessible solely to authorized internal personnel (commercial export desk, logistics, compliance) and technical service providers strictly acting under data protection confidentiality agreements (hosting, email delivery, LinkedIn Campaign analytics).</p>
+      </div>
+
+      <div class="section-card">
+        <h2>7. Your Rights (GDPR & Moroccan Law 09-08)</h2>
+        <p>You hold the following rights regarding your personal information:</p>
+        <p class="bullet">• <strong>Right of Access & Rectification:</strong> Request confirmation of processing and correct inaccurate data.</p>
+        <p class="bullet">• <strong>Right to Erasure ('Right to be Forgotten'):</strong> Request deletion of your data when no legal retention obligation applies.</p>
+        <p class="bullet">• <strong>Right to Restriction & Objection:</strong> Object at any time to commercial prospecting or request temporary processing restrictions.</p>
+        <p class="bullet">• <strong>Right to Data Portability:</strong> Receive your provided data in a structured, commonly used machine-readable format.</p>
+        <p>To exercise any of these rights, email us at <a href="mailto:contact@sali-commodities.com" style="color: var(--accent); font-weight:600;">contact@sali-commodities.com</a> with proof of identity. Requests are processed within 30 days free of charge.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>8. Cookies & LinkedIn Insight Tag</h2>
+        <p>Our website utilizes the LinkedIn Insight Tag (Partner ID: 9944714) to measure the effectiveness of our LinkedIn marketing campaigns, track conversions, and deliver relevant B2B insights.</p>
+        <p>The LinkedIn Insight Tag enables the collection of data regarding members' visits to our website, including the URL, referrer, IP address, device and browser characteristics, and timestamp. IP addresses are truncated or hashed, and member identities are pseudonymized by LinkedIn within seven days and fully deleted within 90 days.</p>
+        <p>You can opt out of LinkedIn cookies and targeted advertising at any time through your LinkedIn account settings or via the Digital Advertising Alliance (DAA) opt-out page.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>9. Data Security & Storage</h2>
+        <p>We deploy robust technical and organizational security measures to protect your personal data against unauthorized access, loss, alteration, or disclosure. Communications are encrypted via SSL/TLS (HTTPS), and data is stored in secure, tier-4 certified cloud data centers with restricted administrative access.</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Data Protection & Compliance Desk</h3>
+        <p>For any questions, verification, or requests regarding this Privacy Policy and your personal data rights, please contact our dedicated desk:</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span>Email</span>
+            <a href="mailto:contact@sali-commodities.com">contact@sali-commodities.com</a>
+          </div>
+          <div class="contact-item">
+            <span>Phone</span>
+            <a href="tel:+212661373937">+212 6 61 37 39 37</a>
+          </div>
+          <div class="contact-item">
+            <span>Headquarters</span>
+            <strong>Casablanca, Morocco</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== FRENCH ==================== -->
+    <div id="content-FR" class="lang-block">
+      <span class="badge">Mentions Légales & Conformité</span>
+      <h1>Politique de Confidentialité et Protection des Données</h1>
+      <p class="subtitle">Conditions générales relatives au traitement des données personnelles collectées via le site web SALI Commodities et les formulaires publicitaires LinkedIn Lead Generation.</p>
+      <div class="updated">Dernière mise à jour : Octobre 2026</div>
+
+      <div class="intro-box">
+        SALI COMMODITIES, filiale spécialisée de SALI Capital Group, accorde la plus haute importance au respect de votre vie privée et à la protection des données personnelles de ses clients, prospects, partenaires et visiteurs. La présente Politique de Confidentialité détaille les modalités selon lesquelles nous collectons, traitons, conservons et protégeons vos données, en stricte conformité avec les réglementations en vigueur, notamment le Règlement Général sur la Protection des Données (RGPD 2016/679), la Loi marocaine n° 09-08 et les exigences de conformité LinkedIn Campaign Manager.
+      </div>
+
+      <div class="section-card">
+        <h2>1. Identification du Responsable de Traitement</h2>
+        <p>Le responsable du traitement de vos données à caractère personnel est la société SALI COMMODITIES, société d'import-export spécialisée dans le négoce agroalimentaire international et les commodités agricoles, affiliée à SALI Capital Group.</p>
+        <p class="bullet">• Siège social : Casablanca, Royaume du Maroc</p>
+        <p class="bullet">• Email officiel : contact@sali-commodities.com</p>
+        <p class="bullet">• Téléphone : +212 6 61 37 39 37</p>
+        <p class="bullet">• Site officiel : https://sali-commodities.com</p>
+      </div>
+
+      <div class="section-card">
+        <h2>2. Données Personnelles Collectées</h2>
+        <p>Nous collectons et traitons uniquement les informations strictement nécessaires à la conduite de nos activités commerciales B2B internationales :</p>
+        <p class="bullet">• <strong>Données transmises via formulaires LinkedIn Lead Gen et formulaires de contact :</strong> Nom, prénom, adresse email professionnelle, numéro de téléphone professionnel, dénomination de l'entreprise ou structure commerciale, fonction/rôle (Distributeur, Importateur, Négociant, Courtier), pays de destination, produit d'intérêt, volumes requis et contenu du message.</p>
+        <p class="bullet">• <strong>Données techniques et de navigation :</strong> Adresse IP, type de navigateur, système d'exploitation, pages visitées et provenance, collectées via nos journaux serveurs et outils analytiques (notamment le LinkedIn Insight Tag, Partner ID : 9944714).</p>
+      </div>
+
+      <div class="section-card">
+        <h2>3. Finalités du Traitement</h2>
+        <p>Vos données sont traitées pour des finalités légitimes, explicites et déterminées :</p>
+        <p class="bullet">• Répondre à vos demandes de cotation, spécifications techniques, offres de prix et demandes d'approvisionnement en matières premières agricoles.</p>
+        <p class="bullet">• Négocier, conclure et exécuter les contrats d'approvisionnement B2B et de transport export international.</p>
+        <p class="bullet">• Assurer le suivi commercial des prises de contact générées via nos campagnes sponsorisées et formulaires Lead Gen LinkedIn.</p>
+        <p class="bullet">• Vous transmettre des informations professionnelles ciblées relatives aux récoltes, disponibilités de stocks, salons professionnels et actualités marchés.</p>
+        <p class="bullet">• Mesurer la pertinence de nos campagnes et optimiser la navigation sur notre site via le LinkedIn Insight Tag.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>4. Bases Légales du Traitement</h2>
+        <p>Le traitement de vos données repose sur les fondements légaux suivants :</p>
+        <p class="bullet">• <strong>Consentement :</strong> Donné librement lors de la soumission de vos coordonnées sur le formulaire LinkedIn Lead Gen ou sur notre site.</p>
+        <p class="bullet">• <strong>Exécution de mesures précontractuelles ou contractuelles :</strong> Établissement d'un devis, d'un contrat commercial d'exportation ou d'un suivi de commande.</p>
+        <p class="bullet">• <strong>Intérêt légitime :</strong> Développement et pérennisation des relations commerciales inter-entreprises (B2B) et sécurisation de nos plateformes.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>5. Durée de Conservation des Données</h2>
+        <p class="bullet">• Données prospects et leads LinkedIn : Conservées pour une durée maximale de 3 ans à compter du dernier contact émanant du prospect, puis supprimées de manière sécurisée.</p>
+        <p class="bullet">• Données clients et contractuelles : Conservées pendant toute la durée de la relation contractuelle, augmentée des délais de prescription légale (fiscal, comptable, douanier, jusqu'à 10 ans selon les législations applicables).</p>
+      </div>
+
+      <div class="section-card">
+        <h2>6. Règle Stricte : Aucune Revente de Données</h2>
+        <p>SALI COMMODITIES applique une politique absolue de confidentialité : <strong>Nous ne vendons, ne louons, ne cédons et n'échangeons JAMAIS vos données personnelles à des tiers.</strong></p>
+        <p>Vos données sont strictement réservées à l'usage interne de SALI COMMODITIES (service export, logistique, direction commerciale) et à nos sous-traitants techniques contractuellement engagés au respect de la confidentialité (hébergeur, plateforme emailing, outil d'analyse LinkedIn Campaign).</p>
+      </div>
+
+      <div class="section-card">
+        <h2>7. Vos Droits (RGPD & Loi Marocaine 09-08)</h2>
+        <p>Conformément au RGPD et à la législation marocaine sur la protection des données personnelles, vous disposez des droits suivants :</p>
+        <p class="bullet">• <strong>Droit d'accès et de rectification :</strong> Obtenir confirmation du traitement et rectifier vos données inexactes.</p>
+        <p class="bullet">• <strong>Droit à l'effacement :</strong> Demander la suppression de vos données personnelles sous réserve des obligations légales d'archivage.</p>
+        <p class="bullet">• <strong>Droit d'opposition et de limitation :</strong> Vous opposer à tout moment à l'utilisation de vos coordonnées à des fins de prospection commerciale.</p>
+        <p class="bullet">• <strong>Droit à la portabilité :</strong> Recevoir vos données dans un format structuré et lisible par machine.</p>
+        <p>Pour exercer vos droits, contactez notre délégué à la protection des données par email à <a href="mailto:contact@sali-commodities.com" style="color: var(--accent); font-weight:600;">contact@sali-commodities.com</a>. Une réponse vous sera adressée sous 30 jours.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>8. Cookies & Tag LinkedIn Insight</h2>
+        <p>Notre site intègre le tag LinkedIn Insight (Partner ID : 9944714) qui nous permet de mesurer l'impact de nos campagnes LinkedIn et d'analyser l'audience professionnelle intéressée par nos commodités.</p>
+        <p>Ce traceur collecte des métadonnées de navigation (URL, référent, adresse IP abrégée/hachée, caractéristiques de l'appareil). Les données sont pseudonymisées par LinkedIn sous 7 jours et purgées sous 90 jours.</p>
+        <p>Vous pouvez désactiver le suivi publicitaire LinkedIn à tout moment depuis les paramètres de votre compte LinkedIn ou via la plateforme de désactivation de l'Alliance de la publicité numérique.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>9. Sécurité des Données</h2>
+        <p>Nous mettons en œuvre toutes les mesures techniques, logiques et organisationnelles adéquates afin de préserver la sécurité de vos données (chiffrement TLS/SSL de bout en bout, serveurs sécurisés, accès restreint aux seuls collaborateurs habilités).</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Contact Protection des Données</h3>
+        <p>Pour toute question ou demande relative à vos données personnelles et à l'exercice de vos droits :</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span>Email</span>
+            <a href="mailto:contact@sali-commodities.com">contact@sali-commodities.com</a>
+          </div>
+          <div class="contact-item">
+            <span>Téléphone</span>
+            <a href="tel:+212661373937">+212 6 61 37 39 37</a>
+          </div>
+          <div class="contact-item">
+            <span>Siège Social</span>
+            <strong>Casablanca, Maroc</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SPANISH ==================== -->
+    <div id="content-ES" class="lang-block">
+      <span class="badge">Legal y Cumplimiento</span>
+      <h1>Política de Privacidad y Protección de Datos</h1>
+      <p class="subtitle">Términos y condiciones relativos al tratamiento de datos personales recopilados a través del sitio web de SALI Commodities y los formularios de clientes potenciales de LinkedIn Lead Gen.</p>
+      <div class="updated">Última actualización: Octubre 2026</div>
+
+      <div class="intro-box">
+        SALI COMMODITIES, filial especializada de SALI Capital Group, concede la máxima importancia al respeto de su privacidad y a la protección de los datos personales de sus clientes, socios comerciales y visitantes. La presente Política de Privacidad describe cómo recopilamos, tratamos, almacenamos y protegemos su información de conformidad con las normativas aplicables, en particular el RGPD (UE 2016/679), la Ley marroquí n° 09-08 y los requisitos de LinkedIn Campaign Manager.
+      </div>
+
+      <div class="section-card">
+        <h2>1. Identificación del Responsable del Tratamiento</h2>
+        <p>El responsable del tratamiento de sus datos personales es SALI COMMODITIES, corporación de comercio internacional especializada en productos agroalimentarios y materias primas agrícolas, perteneciente a SALI Capital Group.</p>
+        <p class="bullet">• Sede central: Casablanca, Reino de Marruecos</p>
+        <p class="bullet">• Correo electrónico oficial: contact@sali-commodities.com</p>
+        <p class="bullet">• Teléfono: +212 6 61 37 39 37</p>
+        <p class="bullet">• Sitio web: https://sali-commodities.com</p>
+      </div>
+
+      <div class="section-card">
+        <h2>2. Datos Personales Recopilados</h2>
+        <p>Recopilamos únicamente los datos estrictamente necesarios para nuestras actividades comerciales B2B y comunicaciones profesionales:</p>
+        <p class="bullet">• <strong>Datos facilitados a través de formularios LinkedIn Lead Gen y formularios de contacto:</strong> Nombre y apellidos, correo electrónico profesional, teléfono corporativo, empresa, cargo/rol (Distribuidor, Importador, Procesador, Broker), país de destino, producto de interés, volúmenes solicitados y contenido de la consulta.</p>
+        <p class="bullet">• <strong>Datos técnicos y de navegación:</strong> Dirección IP anonimizada, navegador, sistema operativo y páginas visitadas a través del LinkedIn Insight Tag (Partner ID: 9944714).</p>
+      </div>
+
+      <div class="section-card">
+        <h2>3. Finalidades del Tratamiento</h2>
+        <p class="bullet">• Responder eficazmente a sus solicitudes de cotización, especificaciones técnicas y suministro de productos agrícolas.</p>
+        <p class="bullet">• Negociación, gestión y ejecución de contratos comerciales internacionales y logística de exportación.</p>
+        <p class="bullet">• Seguimiento comercial de los contactos generados mediante nuestras campañas publicitarias de LinkedIn.</p>
+        <p class="bullet">• Envío de comunicaciones B2B relevantes sobre cosechas, disponibilidad y eventos del sector.</p>
+        <p class="bullet">• Análisis de rendimiento de campañas a través de la etiqueta LinkedIn Insight Tag.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>4. Base Jurídica del Tratamiento</h2>
+        <p class="bullet">• <strong>Consentimiento:</strong> Otorgado expresamente al enviar sus datos mediante el formulario de LinkedIn o la web.</p>
+        <p class="bullet">• <strong>Ejecución contractual o medidas precontractuales:</strong> Elaboración de ofertas y cumplimiento de acuerdos de suministro.</p>
+        <p class="bullet">• <strong>Interés legítimo:</strong> Desarrollo de relaciones comerciales internacionales B2B e integridad de las operaciones.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>5. Período de Conservación de Datos</h2>
+        <p class="bullet">• Datos de clientes potenciales (Leads de LinkedIn): Conservados durante un máximo de 3 años tras el último contacto comercial activo.</p>
+        <p class="bullet">• Datos de clientes contractuales: Conservados durante la vigencia de la relación comercial más los plazos legales aplicables (fiscal, aduanero, mercantil, hasta 10 años).</p>
+      </div>
+
+      <div class="section-card">
+        <h2>6. Política Estricta: Cero Venta de Datos</h2>
+        <p>SALI COMMODITIES aplica una política inquebrantable: <strong>Bajo ninguna circunstancia vendemos, alquilamos ni comercializamos sus datos personales a terceros.</strong></p>
+      </div>
+
+      <div class="section-card">
+        <h2>7. Sus Derechos</h2>
+        <p>Conforme al RGPD y la Ley marroquí 09-08, usted tiene derecho a acceder, rectificar, limitar, oponerse al tratamiento y solicitar la supresión de sus datos personales. Para ejercerlos, contacte con <a href="mailto:contact@sali-commodities.com" style="color: var(--accent); font-weight:600;">contact@sali-commodities.com</a>.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>8. Cookies y LinkedIn Insight Tag</h2>
+        <p>Este sitio utiliza el LinkedIn Insight Tag (ID: 9944714) para optimizar campañas publicitarias B2B. Puede revocar su consentimiento para cookies publicitarias desde la configuración de su cuenta de LinkedIn.</p>
+      </div>
+
+      <div class="section-card">
+        <h2>9. Seguridad de la Información</h2>
+        <p>Garantizamos la seguridad de sus datos mediante protocolos de cifrado SSL/TLS, cortafuegos y centros de datos de alta seguridad con acceso estrictamente restringido.</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Oficina de Protección de Datos</h3>
+        <p>Para cualquier consulta relativa a la protección de sus datos personales:</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span>Email</span>
+            <a href="mailto:contact@sali-commodities.com">contact@sali-commodities.com</a>
+          </div>
+          <div class="contact-item">
+            <span>Teléfono</span>
+            <a href="tel:+212661373937">+212 6 61 37 39 37</a>
+          </div>
+          <div class="contact-item">
+            <span>Sede</span>
+            <strong>Casablanca, Marruecos</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-btn-container">
+      <a href="/" class="back-btn">← Back to Home / Retour à l'accueil</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <div>© 2026 SALI Commodities. All rights reserved. • SALI Capital Group • Casablanca, Morocco</div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-block').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-tab-btn').forEach(el => el.classList.remove('active'));
+      
+      const targetBlock = document.getElementById('content-' + lang);
+      if (targetBlock) {
+        targetBlock.classList.add('active');
+      }
+      
+      const buttons = document.querySelectorAll('.lang-tab-btn');
+      buttons.forEach(btn => {
+        if (btn.textContent.trim() === lang) {
+          btn.classList.add('active');
+        }
+      });
+
+      try {
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', lang.toLowerCase());
+        window.history.replaceState({}, '', url.toString());
+      } catch(e) {}
+    }
+
+    // Auto-detect lang query param on load
+    (function() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const qLang = (params.get('lang') || '').toUpperCase();
+        if (qLang === 'FR' || qLang === 'ES' || qLang === 'EN') {
+          switchLang(qLang);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</body>
+</html>
